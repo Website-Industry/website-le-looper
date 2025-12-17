@@ -962,13 +962,14 @@ a:focus-visible {
    Card Le Séquenceur
    ============================================ */
 .sequenceur-card {
-    background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%);
-    border: 2px solid var(--color-primary);
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+    border: 3px solid var(--color-primary);
     border-radius: var(--border-radius-lg);
     padding: var(--spacing-xl);
     margin: var(--spacing-xl) 0;
     position: relative;
     overflow: hidden;
+    box-shadow: var(--shadow-md);
 }
 
 .sequenceur-card::before {
@@ -977,7 +978,7 @@ a:focus-visible {
     top: 0;
     left: 0;
     right: 0;
-    height: 4px;
+    height: 6px;
     background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
 }
 
@@ -986,9 +987,10 @@ a:focus-visible {
 }
 
 .sequenceur-card-header h3 {
-    font-size: var(--font-size-2xl);
+    font-size: var(--font-size-3xl);
     margin-bottom: var(--spacing-xs);
     color: var(--color-primary);
+    font-weight: 700;
 }
 
 .sequenceur-location {
@@ -1059,6 +1061,134 @@ a:focus-visible {
     .sequenceur-link {
         width: 100%;
         justify-content: center;
+    }
+}
+
+/* ============================================
+   Card Marc Charton (L'impulsion)
+   ============================================ */
+.marc-card {
+    background-color: var(--color-bg-alt);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-lg);
+    margin: var(--spacing-xl) 0;
+    position: relative;
+}
+
+.marc-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(180deg, var(--color-primary), var(--color-secondary));
+}
+
+.marc-card-header h3 {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--spacing-md);
+    color: var(--color-text);
+    font-weight: 600;
+}
+
+.marc-card-content p {
+    margin: 0;
+    font-size: var(--font-size-base);
+    line-height: 1.7;
+    color: var(--color-text-light);
+}
+
+/* ============================================
+   Vision Cards
+   ============================================ */
+.vision-grid {
+    margin-top: var(--spacing-xl);
+}
+
+.vision-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 250, 252, 0.9) 100%);
+    padding: var(--spacing-xl);
+    border-radius: var(--border-radius-lg);
+    border: 2px solid var(--color-border);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+.vision-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: var(--transition);
+}
+
+.vision-card:hover::before {
+    transform: scaleX(1);
+}
+
+.vision-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-primary);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(248, 250, 252, 1) 100%);
+}
+
+.vision-card-icon {
+    font-size: var(--font-size-4xl);
+    margin-bottom: var(--spacing-md);
+    display: block;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+    transition: var(--transition);
+}
+
+.vision-card:hover .vision-card-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.vision-card h3 {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--spacing-md);
+    color: var(--color-primary);
+    font-weight: 700;
+}
+
+.vision-card p {
+    margin: 0;
+    font-size: var(--font-size-base);
+    line-height: 1.7;
+    color: var(--color-text);
+}
+
+.vision-card-cta {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+    border-color: var(--color-secondary);
+}
+
+.vision-card-cta::before {
+    background: linear-gradient(90deg, var(--color-secondary), var(--color-accent));
+}
+
+.vision-card-cta:hover {
+    border-color: var(--color-secondary);
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(139, 92, 246, 0.15) 100%);
+}
+
+@media (max-width: 768px) {
+    .marc-card {
+        padding: var(--spacing-md);
+    }
+    
+    .vision-card {
+        padding: var(--spacing-md);
     }
 }
 
