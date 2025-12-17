@@ -51,10 +51,25 @@
     <section id="projet" class="section" aria-labelledby="projet-title">
         <div class="container">
             <h2 id="projet-title" class="section-title">C'est quoi ?</h2>
-            <div class="content-card">
+            <div class="projet-intro">
                 <p class="lead">Le Looper est un <strong>collectif informel</strong> qui rassemble des passionné·es de création musicale numérique à Toulouse.</p>
-                <p>Notre objectif ? Créer un <strong>espace de pratique, de rencontres et de transmission</strong> autour de la musique numérique au sens large : MAO, machines, live sets, live coding, sound design, beatmaking, improvisation, looping…</p>
-                <p>Nous voulons <strong>rassembler des gens de scènes différentes</strong>, décloisonner les styles, et rendre la pratique accessible à toutes et tous, sans barrière d'expertise.</p>
+            </div>
+            <div class="grid-3">
+                <div class="projet-card">
+                    <div class="projet-card-icon" aria-hidden="true">🎯</div>
+                    <h3>Notre objectif</h3>
+                    <p>Créer un <strong>espace de pratique, de rencontres et de transmission</strong> autour de la musique numérique au sens large.</p>
+                </div>
+                <div class="projet-card">
+                    <div class="projet-card-icon" aria-hidden="true">🎵</div>
+                    <h3>Les pratiques</h3>
+                    <p>MAO, machines, live sets, live coding, sound design, beatmaking, improvisation, looping…</p>
+                </div>
+                <div class="projet-card">
+                    <div class="projet-card-icon" aria-hidden="true">🌟</div>
+                    <h3>Notre ambition</h3>
+                    <p><strong>Rassembler des gens de scènes différentes</strong>, décloisonner les styles, et rendre la pratique accessible à toutes et tous, sans barrière d'expertise.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -91,13 +106,13 @@
             <div class="content-card">
                 <p class="lead">Des formats variés pour explorer et partager :</p>
                 <ul class="formats-list">
+                    <li><strong><a href="horizon-live-coding.html" class="format-link">Horizon Live Coding</a></strong> — espace de pratique horizontal dédié au live coding</li>
                     <li><strong>Jam / sessions d'impro</strong> — improvisation collective, live sets</li>
                     <li><strong>Ateliers outils</strong> — découverte de logiciels et techniques (Ableton, Bitwig, Renoise, Sonic Pi, TidalCycles, Strudel…)</li>
                     <li><strong>Écoutes collectives / démos</strong> — partage de créations, retours bienveillants</li>
                     <li><strong>Mini-performances</strong> — moments de live, showcases</li>
                     <li><strong>Rencontres / échanges</strong> — discussions, partage d'expériences</li>
                 </ul>
-                <p class="note">Rythme envisagé : <strong>événements plutôt mensuels</strong> au départ.</p>
             </div>
         </div>
     </section>
@@ -162,14 +177,26 @@
                 <p class="note">Planning en construction — les prochaines dates seront annoncées sur Discord.</p>
                 <div class="events-list">
                     <div class="event-card">
-                        <div class="event-date">À venir</div>
-                        <h3>Prochaine session</h3>
-                        <p>Date et format à définir ensemble sur Discord. Rejoins-nous pour proposer et voter !</p>
+                        <div class="event-date">Dimanche 18 janvier 2025</div>
+                        <h3>Atelier "Horizon Live Coding #1"</h3>
+                        <p><strong>13h - 15h</strong> — Découverte de Strudel.cc</p>
+                        <p class="event-location">📍 <a href="https://eurekafe.fr/" target="_blank" rel="noopener noreferrer" class="event-location-link">Eurêkafé</a>, 5 Impasse Colombette, Toulouse</p>
+                        <div class="event-links">
+                            <a href="horizon-live-coding.html" class="event-info-link event-info-link-secondary">Découvrir le format →</a>
+                            <a href="https://tour-de-controle.notion.site/D-couverte-de-struddel-cc-2102974a82658071a542d2c0dbd6d6f6" target="_blank" rel="noopener noreferrer" class="event-info-link">Plus d'info →</a>
+                        </div>
                     </div>
                     <div class="event-card">
                         <div class="event-date">En discussion</div>
-                        <h3>Atelier découverte</h3>
-                        <p>Plusieurs propositions en cours : Sonic Pi, TidalCycles, Ableton Live… À suivre !</p>
+                        <h3>Écoute collective d'albums</h3>
+                        <p>Session d'écoute collective pour découvrir et partager des albums. Format et date à définir.</p>
+                        <a href="#" class="event-info-link" id="discordBtnEvent1">Plus d'info →</a>
+                    </div>
+                    <div class="event-card">
+                        <div class="event-date">En discussion</div>
+                        <h3>Workflow #2</h3>
+                        <p>Deuxième session de la série Workflow. Thème et date à venir.</p>
+                        <a href="#" class="event-info-link" id="discordBtnEvent2">Plus d'info →</a>
                     </div>
                 </div>
                 <p class="cta-text">Pour proposer ou voter pour un événement, <a href="#" id="discordBtn3">rejoins le Discord</a>.</p>
@@ -182,11 +209,19 @@
         <div class="container">
             <h2 id="archive-title" class="section-title">Archive</h2>
             <div class="content-card">
-                <div class="archive-placeholder">
-                    <p class="lead">Bientôt : premières sessions</p>
-                    <p>Rejoins le Discord pour lancer la boucle et créer ensemble les premiers moments du Looper.</p>
-                    <a href="#" class="btn btn-primary" id="discordBtn4">Rejoindre le Discord</a>
+                <div class="archive-list">
+                    <div class="archive-item">
+                        <div class="archive-date">Juin 2025</div>
+                        <h3>Workflow #1 — Sonic Pi</h3>
+                        <p>Premier atelier de la série Workflow dédié à Sonic Pi, outil de live coding pour créer de la musique en temps réel.</p>
+                    </div>
+                    <div class="archive-item">
+                        <div class="archive-date">Avril 2023 — Juin 2024</div>
+                        <h3>Apéros mensuels</h3>
+                        <p>Rencontres mensuelles régulières pour échanger, partager et créer ensemble autour de la musique numérique.</p>
+                    </div>
                 </div>
+                <p class="cta-text">Pour découvrir les prochains événements, <a href="#" id="discordBtn4">rejoins le Discord</a>.</p>
             </div>
         </div>
     </section>

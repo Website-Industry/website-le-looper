@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Horizon Live Coding - Espace de pratique horizontal dédié au live coding au Looper. Expérimentation, apprentissage collectif, sans transmission descendante.">
+    <title>Horizon Live Coding - Le Looper</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" role="navigation" aria-label="Navigation principale">
+        <div class="nav-container">
+            <a href="index.html" class="logo" aria-label="Le Looper - Retour à l'accueil">Le Looper</a>
+            <button class="menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html#projet" class="nav-link">Projet</a></li>
+                <li><a href="index.html#formats" class="nav-link">Formats</a></li>
+                <li><a href="index.html#impliquer" class="nav-link">S'impliquer</a></li>
+                <li><a href="index.html#agenda" class="nav-link">Agenda</a></li>
+                <li><a href="index.html#archive" class="nav-link">Archive</a></li>
+                <li><a href="manifesto.html" class="nav-link">Manifeste</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero hero-small" aria-labelledby="horizon-title">
+        <div class="hero-content">
+            <h1 id="horizon-title" class="hero-title">Horizon Live Coding</h1>
+            <p class="hero-subtitle">Espace de pratique horizontal dédié au live coding</p>
+            <a href="index.html#agenda" class="btn btn-secondary">Voir l'agenda</a>
+        </div>
+    </section>
+
+    <!-- Section: Intention -->
+    <section class="section" aria-labelledby="intention-title">
+        <div class="container">
+            <h2 id="intention-title" class="section-title">Intention</h2>
+            <div class="content-card">
+                <p class="lead"><strong>Horizon Live Coding</strong> est un espace de pratique horizontal dédié au live coding : la création de musique à l'aide de code écrit et modifié en temps réel.</p>
+                <p>L'objectif est de proposer un cadre régulier pour expérimenter, apprendre les un·es des autres et faire émerger une pratique collective, sans transmission descendante ni posture de formateur.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Principe -->
+    <section class="section section-alt" aria-labelledby="principe-title">
+        <div class="container">
+            <h2 id="principe-title" class="section-title">Principe</h2>
+            <div class="content-card">
+                <ul class="horizon-list">
+                    <li><strong>Pas de cours, pas de démonstration imposée</strong></li>
+                    <li><strong>Chacun·e pratique à son rythme</strong>, sur son propre ordinateur</li>
+                    <li><strong>Les savoirs circulent librement</strong> : échanges spontanés, entraide, observation, discussion</li>
+                    <li><strong>Le groupe décide collectivement</strong> des directions explorées</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Format -->
+    <section class="section" aria-labelledby="format-title">
+        <div class="container">
+            <h2 id="format-title" class="section-title">Format</h2>
+            <div class="grid-2">
+                <div class="content-card">
+                    <h3>Durée & Fréquence</h3>
+                    <ul class="horizon-list">
+                        <li><strong>Durée</strong> : 2 à 3 heures</li>
+                        <li><strong>Fréquence</strong> : mensuelle</li>
+                    </ul>
+                </div>
+                <div class="content-card">
+                    <h3>Configuration</h3>
+                    <ul class="horizon-list">
+                        <li>1 personne = 1 ordinateur + casque</li>
+                        <li>Pratique principalement silencieuse (au casque)</li>
+                        <li>Temps informels d'échange intégrés naturellement</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Contenu possible -->
+    <section class="section section-alt" aria-labelledby="contenu-title">
+        <div class="container">
+            <h2 id="contenu-title" class="section-title">Contenu possible</h2>
+            <div class="content-card">
+                <p class="note">Selon les envies du groupe :</p>
+                <div class="horizon-grid">
+                    <div class="horizon-item">
+                        <span class="horizon-icon" aria-hidden="true">🔍</span>
+                        <p>Découverte d'un langage ou outil de live coding</p>
+                    </div>
+                    <div class="horizon-item">
+                        <span class="horizon-icon" aria-hidden="true">⚙️</span>
+                        <p>Exploration d'une technique spécifique</p>
+                    </div>
+                    <div class="horizon-item">
+                        <span class="horizon-icon" aria-hidden="true">🎨</span>
+                        <p>Travail sur une esthétique ou un style</p>
+                    </div>
+                    <div class="horizon-item">
+                        <span class="horizon-icon" aria-hidden="true">🔄</span>
+                        <p>Tests de workflows, setups, performances</p>
+                    </div>
+                    <div class="horizon-item">
+                        <span class="horizon-icon" aria-hidden="true">🎤</span>
+                        <p>Préparation ou débrief de lives / performances</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Public -->
+    <section class="section" aria-labelledby="public-title">
+        <div class="container">
+            <h2 id="public-title" class="section-title">Public</h2>
+            <div class="content-card">
+                <ul class="horizon-list">
+                    <li>Ouvert aux <strong>curieux·ses, musicien·nes, développeur·ses, artistes numériques</strong></li>
+                    <li><strong>Aucun niveau requis</strong> : débutant·es bienvenu·es</li>
+                    <li>Accessible aussi bien aux personnes découvrant la pratique qu'à celles souhaitant un cadre régulier pour pratiquer</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Esprit -->
+    <section class="section section-alt" aria-labelledby="esprit-title">
+        <div class="container">
+            <h2 id="esprit-title" class="section-title">Esprit</h2>
+            <div class="content-card">
+                <div class="esprit-grid">
+                    <div class="esprit-item">Horizontalité</div>
+                    <div class="esprit-item">Expérimentation</div>
+                    <div class="esprit-item">Bienveillance</div>
+                    <div class="esprit-item">Curiosité technique et artistique</div>
+                    <div class="esprit-item">Culture DIY / bidouille / open knowledge</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section">
+        <div class="container">
+            <div class="cta-box">
+                <p class="lead">Intéressé·e par Horizon Live Coding ?</p>
+                <p>Rejoins le Discord pour être informé·e des prochaines sessions et participer aux discussions.</p>
+                <a href="#" class="btn btn-primary btn-large" id="discordBtn">Rejoindre le Discord</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Le Looper</h3>
+                    <p>Création musicale numérique à Toulouse</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Rejoins-nous</h3>
+                    <div class="footer-links">
+                        <a href="#" class="footer-link" id="discordBtnFooter" aria-label="Rejoindre le Discord">
+                            <span aria-hidden="true">💬</span> Discord
+                        </a>
+                        <a href="#" class="footer-link" id="instagramBtn" aria-label="Suivre sur Instagram">
+                            <span aria-hidden="true">📷</span> Instagram
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Navigation</h3>
+                    <ul class="footer-links-list">
+                        <li><a href="index.html" class="footer-link">Accueil</a></li>
+                        <li><a href="index.html#formats" class="footer-link">Formats</a></li>
+                        <li><a href="manifesto.html" class="footer-link">Manifeste</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Toulouse, France</p>
+                <p>&copy; <span id="currentYear"></span> Le Looper. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
