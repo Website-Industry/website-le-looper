@@ -1569,7 +1569,7 @@ a:focus-visible {
    ============================================ */
 .partenaires-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: var(--spacing-xl);
     margin-top: var(--spacing-xl);
 }
@@ -1582,7 +1582,8 @@ a:focus-visible {
     text-decoration: none;
     color: var(--color-text);
     transition: var(--transition);
-    display: block;
+    display: flex;
+    flex-direction: column;
     position: relative;
     overflow: hidden;
 }
@@ -1658,7 +1659,69 @@ a:focus-visible {
     .partenaire-content h3 {
         font-size: var(--font-size-xl);
     }
+    
+    .partenaire-temoignage {
+        padding: var(--spacing-sm);
+    }
+    
+    .temoignage-photo {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .temoignage-citation {
+        font-size: 0.8125rem;
+    }
 }
+
+.partenaire-temoignage {
+    display: flex;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md);
+    margin-top: var(--spacing-md);
+    background-color: var(--color-bg-alt);
+    border-radius: var(--border-radius);
+    border-left: 3px solid var(--color-primary);
+    opacity: 0.85;
+    transition: var(--transition);
+}
+
+.partenaire-card:hover .partenaire-temoignage {
+    opacity: 1;
+}
+
+.temoignage-photo {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    border: 2px solid var(--color-border);
+}
+
+.temoignage-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.temoignage-citation {
+    font-size: var(--font-size-sm);
+    line-height: 1.5;
+    color: var(--color-text-light);
+    font-style: italic;
+    margin: 0;
+}
+
+.temoignage-auteur {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-light);
+    font-weight: 500;
+    margin: 0;
+    opacity: 0.8;
+}
+
 
 @media (prefers-reduced-motion: reduce) {
     .partenaire-card:hover {
@@ -1793,6 +1856,11 @@ a:focus-visible {
     
     .cta-box {
         background-color: rgba(15, 23, 42, 0.95) !important;
+    }
+    
+    .partenaire-temoignage {
+        background-color: rgba(15, 23, 42, 0.95) !important;
+        border-left-color: var(--color-primary) !important;
     }
 }
 
