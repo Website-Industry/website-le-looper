@@ -179,12 +179,27 @@ a:focus-visible {
     font-weight: 700;
     color: var(--color-text);
     text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
 }
 
 .logo:hover,
 .logo:focus {
     text-decoration: none;
     color: var(--color-primary);
+}
+
+.logo-icon {
+    width: 48px;
+    height: 48px;
+    display: block;
+    transition: var(--transition);
+}
+
+.logo:hover .logo-icon,
+.logo:focus .logo-icon {
+    transform: rotate(10deg) scale(1.05);
 }
 
 .nav-menu {
@@ -365,6 +380,31 @@ a:focus-visible {
 .hero-content {
     max-width: 800px;
     z-index: 1;
+    margin: 0 auto;
+}
+
+.hero-logo {
+    width: clamp(120px, 20vw, 200px);
+    height: auto;
+    margin: 0 auto var(--spacing-lg);
+    display: block;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
+    animation: logoFloat 3s ease-in-out infinite;
+}
+
+@keyframes logoFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-logo {
+        animation: none;
+    }
 }
 
 .hero-title {
