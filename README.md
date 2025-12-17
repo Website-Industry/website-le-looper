@@ -1,6 +1,6 @@
 # Le Looper - Site Vitrine
 
-Site vitrine statique pour **Le Looper**, un collectif informel de création musicale numérique à Toulouse.
+Site vitrine statique pour **Le Looper**, un collectif de création musicale numérique à Toulouse.
 
 ## 🎵 À propos
 

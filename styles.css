@@ -872,9 +872,15 @@ a:focus-visible {
     color: var(--color-text-light);
 }
 
+.archive-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-sm);
+}
+
 .archive-info-link {
     display: inline-block;
-    margin-top: var(--spacing-xs);
     padding: var(--spacing-xs) var(--spacing-md);
     background-color: var(--color-secondary);
     color: white;
@@ -897,6 +903,19 @@ a:focus-visible {
 .archive-info-link:focus-visible {
     outline: 2px solid var(--color-secondary);
     outline-offset: 2px;
+}
+
+.archive-info-link-secondary {
+    background-color: transparent;
+    color: var(--color-secondary);
+    border: 1px solid var(--color-secondary);
+}
+
+.archive-info-link-secondary:hover,
+.archive-info-link-secondary:focus {
+    background-color: var(--color-secondary);
+    color: white;
+    border-color: var(--color-secondary);
 }
 
 /* ============================================
