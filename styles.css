@@ -1621,6 +1621,75 @@ a:focus-visible {
     top: 0;
 }
 
+/* ============================================
+   Dark Mode - Cartes
+   ============================================ */
+@media (prefers-color-scheme: dark) {
+    .projet-card {
+        background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.95) 100%) !important;
+    }
+    
+    .projet-card:hover {
+        background: linear-gradient(135deg, rgba(15, 23, 42, 1) 0%, rgba(30, 41, 59, 1) 100%) !important;
+    }
+    
+    .platform-card {
+        background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.95) 100%) !important;
+    }
+    
+    .platform-card:hover {
+        background: linear-gradient(135deg, rgba(15, 23, 42, 1) 0%, rgba(30, 41, 59, 1) 100%) !important;
+    }
+    
+    .partenaire-card {
+        background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.95) 100%) !important;
+    }
+    
+    .partenaire-card:hover {
+        background: linear-gradient(135deg, rgba(15, 23, 42, 1) 0%, rgba(30, 41, 59, 1) 100%) !important;
+    }
+    
+    .content-card {
+        background-color: rgba(15, 23, 42, 0.95) !important;
+    }
+    
+    .role-card {
+        background-color: rgba(15, 23, 42, 0.95) !important;
+    }
+    
+    .role-card-generic {
+        background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.95) 100%) !important;
+    }
+    
+    .role-card-generic:hover {
+        background: linear-gradient(135deg, rgba(15, 23, 42, 1) 0%, rgba(30, 41, 59, 1) 100%) !important;
+    }
+    
+    .event-card {
+        background-color: rgba(15, 23, 42, 0.95) !important;
+    }
+    
+    .sequenceur-card {
+        background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.95) 100%) !important;
+    }
+    
+    .marc-card {
+        background-color: rgba(15, 23, 42, 0.95) !important;
+    }
+    
+    .vision-card {
+        background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.95) 100%) !important;
+    }
+    
+    .vision-card:hover {
+        background: linear-gradient(135deg, rgba(15, 23, 42, 1) 0%, rgba(30, 41, 59, 1) 100%) !important;
+    }
+    
+    .cta-box {
+        background-color: rgba(15, 23, 42, 0.95) !important;
+    }
+}
+
 /* Amélioration du contraste pour les liens */
 a:not(.btn):focus-visible {
     outline: 2px solid var(--color-primary);
