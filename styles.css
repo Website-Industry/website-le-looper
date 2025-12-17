@@ -1412,6 +1412,119 @@ a:focus-visible {
 }
 
 /* ============================================
+   Section "Où nous trouver" - Plateformes
+   ============================================ */
+.platforms-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-xl);
+}
+
+.platform-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 250, 252, 0.9) 100%);
+    border: 2px solid var(--color-border);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-xl);
+    text-align: center;
+    text-decoration: none;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-md);
+    position: relative;
+    overflow: hidden;
+}
+
+.platform-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: var(--transition);
+}
+
+.platform-card:hover::before {
+    transform: scaleX(1);
+}
+
+.platform-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-primary);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(248, 250, 252, 1) 100%);
+}
+
+.platform-icon {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+
+.platform-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.discord-icon {
+    color: #5865F2;
+}
+
+.instagram-icon {
+    color: #E4405F;
+}
+
+.facebook-icon {
+    color: #1877F2;
+}
+
+.platform-card:hover .platform-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.platform-card h3 {
+    font-size: var(--font-size-xl);
+    margin: 0;
+    color: var(--color-text);
+    font-weight: 700;
+}
+
+.platform-card p {
+    margin: 0;
+    font-size: var(--font-size-sm);
+    color: var(--color-text-light);
+}
+
+.platform-card:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+@media (max-width: 768px) {
+    .platforms-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .platform-card {
+        padding: var(--spacing-lg);
+    }
+    
+    .platform-icon {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+/* ============================================
    Responsive
    ============================================ */
 @media (max-width: 768px) {

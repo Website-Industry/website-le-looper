@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initDiscordLinks();
     initInstagramLinks();
     initFacebookLinks();
+    initPlatformCards();
     initYear();
     initSmoothScroll();
 });
@@ -123,6 +124,40 @@ function initFacebookLinks() {
         button.target = '_blank';
         button.rel = 'noopener noreferrer';
     });
+}
+
+// ============================================
+// Cartes plateformes
+// ============================================
+function initPlatformCards() {
+    // Discord
+    const discordPlatformBtn = document.getElementById('discordPlatformBtn');
+    if (discordPlatformBtn) {
+        discordPlatformBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            if (CONFIG.DISCORD_INVITE_URL && CONFIG.DISCORD_INVITE_URL !== "https://discord.gg/TON_INVITATION") {
+                window.open(CONFIG.DISCORD_INVITE_URL, '_blank', 'noopener,noreferrer');
+            } else {
+                alert('Le lien Discord sera bientôt disponible. Reviens plus tard !');
+            }
+        });
+    }
+    
+    // Instagram
+    const instagramPlatformBtn = document.getElementById('instagramPlatformBtn');
+    if (instagramPlatformBtn) {
+        instagramPlatformBtn.href = CONFIG.INSTAGRAM_URL;
+        instagramPlatformBtn.target = '_blank';
+        instagramPlatformBtn.rel = 'noopener noreferrer';
+    }
+    
+    // Facebook
+    const facebookPlatformBtn = document.getElementById('facebookPlatformBtn');
+    if (facebookPlatformBtn) {
+        facebookPlatformBtn.href = CONFIG.FACEBOOK_URL;
+        facebookPlatformBtn.target = '_blank';
+        facebookPlatformBtn.rel = 'noopener noreferrer';
+    }
 }
 
 // ============================================
