@@ -868,8 +868,35 @@ a:focus-visible {
 }
 
 .archive-item p {
-    margin: 0;
+    margin: 0 0 var(--spacing-sm) 0;
     color: var(--color-text-light);
+}
+
+.archive-info-link {
+    display: inline-block;
+    margin-top: var(--spacing-xs);
+    padding: var(--spacing-xs) var(--spacing-md);
+    background-color: var(--color-secondary);
+    color: white;
+    border-radius: var(--border-radius);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.archive-info-link:hover,
+.archive-info-link:focus {
+    background-color: var(--color-primary-dark);
+    color: white;
+    text-decoration: none;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.archive-info-link:focus-visible {
+    outline: 2px solid var(--color-secondary);
+    outline-offset: 2px;
 }
 
 /* ============================================

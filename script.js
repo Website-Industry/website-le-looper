@@ -3,7 +3,8 @@
 // ============================================
 const CONFIG = {
     DISCORD_INVITE_URL: "https://discord.gg/aWUtah3rvF",
-    INSTAGRAM_URL: "https://www.instagram.com/lelooper_toulouse/"
+    INSTAGRAM_URL: "https://www.instagram.com/lelooper_toulouse/",
+    FACEBOOK_URL: "https://www.facebook.com/groups/711269780777603"
 };
 
 // ============================================
@@ -13,6 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initNavigation();
     initDiscordLinks();
     initInstagramLinks();
+    initFacebookLinks();
     initEventInfoLinks();
     initYear();
     initSmoothScroll();
@@ -128,6 +130,19 @@ function initInstagramLinks() {
                 alert('Le compte Instagram sera bientôt disponible. Reviens plus tard !');
             }
         });
+    });
+}
+
+// ============================================
+// Liens Facebook
+// ============================================
+function initFacebookLinks() {
+    const facebookButtons = document.querySelectorAll('[id^="facebookBtn"]');
+    
+    facebookButtons.forEach(button => {
+        button.href = CONFIG.FACEBOOK_URL;
+        button.target = '_blank';
+        button.rel = 'noopener noreferrer';
     });
 }
 
