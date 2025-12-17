@@ -703,6 +703,110 @@ a:focus-visible {
 }
 
 /* ============================================
+   Card Le Séquenceur
+   ============================================ */
+.sequenceur-card {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%);
+    border: 2px solid var(--color-primary);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-xl);
+    margin: var(--spacing-xl) 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.sequenceur-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+}
+
+.sequenceur-card-header {
+    margin-bottom: var(--spacing-md);
+}
+
+.sequenceur-card-header h3 {
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--spacing-xs);
+    color: var(--color-primary);
+}
+
+.sequenceur-location {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-light);
+    font-style: italic;
+    margin: 0;
+}
+
+.sequenceur-card-content {
+    margin-bottom: var(--spacing-lg);
+}
+
+.sequenceur-card-content p {
+    margin-bottom: var(--spacing-md);
+}
+
+.sequenceur-card-content p:last-child {
+    margin-bottom: 0;
+}
+
+.sequenceur-card-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    padding-top: var(--spacing-md);
+    border-top: 1px solid var(--color-border);
+}
+
+.sequenceur-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-xs) var(--spacing-md);
+    background-color: var(--color-bg);
+    color: var(--color-primary);
+    border: 1px solid var(--color-primary);
+    border-radius: var(--border-radius);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.sequenceur-link:hover,
+.sequenceur-link:focus {
+    background-color: var(--color-primary);
+    color: white;
+    text-decoration: none;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.sequenceur-link:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+@media (max-width: 768px) {
+    .sequenceur-card {
+        padding: var(--spacing-md);
+    }
+    
+    .sequenceur-card-links {
+        flex-direction: column;
+    }
+    
+    .sequenceur-link {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* ============================================
    Footer
    ============================================ */
 .footer {
