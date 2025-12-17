@@ -1565,6 +1565,112 @@ a:focus-visible {
 }
 
 /* ============================================
+   Section "Partenaires"
+   ============================================ */
+.partenaires-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-xl);
+    margin-top: var(--spacing-xl);
+}
+
+.partenaire-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.95) 100%);
+    border: 2px solid var(--color-border);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-xl);
+    text-decoration: none;
+    color: var(--color-text);
+    transition: var(--transition);
+    display: block;
+    position: relative;
+    overflow: hidden;
+}
+
+.partenaire-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: var(--transition);
+}
+
+.partenaire-card:hover::before {
+    transform: scaleX(1);
+}
+
+.partenaire-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-primary);
+}
+
+.partenaire-card:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+.partenaire-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.partenaire-content h3 {
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-primary);
+}
+
+.partenaire-content p {
+    color: var(--color-text-light);
+    line-height: 1.6;
+    margin-bottom: var(--spacing-md);
+}
+
+.partenaire-link {
+    color: var(--color-primary);
+    font-weight: 600;
+    margin-top: auto;
+    display: inline-block;
+    transition: var(--transition);
+}
+
+.partenaire-card:hover .partenaire-link {
+    color: var(--color-primary-dark);
+    transform: translateX(4px);
+}
+
+@media (max-width: 768px) {
+    .partenaires-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .partenaire-card {
+        padding: var(--spacing-lg);
+    }
+    
+    .partenaire-content h3 {
+        font-size: var(--font-size-xl);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .partenaire-card:hover {
+        transform: none;
+    }
+    
+    .partenaire-card:hover .partenaire-link {
+        transform: none;
+    }
+}
+
+/* ============================================
    Responsive
    ============================================ */
 @media (max-width: 768px) {
