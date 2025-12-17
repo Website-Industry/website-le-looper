@@ -15,7 +15,6 @@ document.addEventListener('DOMContentLoaded', function() {
     initDiscordLinks();
     initInstagramLinks();
     initFacebookLinks();
-    initEventInfoLinks();
     initYear();
     initSmoothScroll();
 });
@@ -87,26 +86,6 @@ function initDiscordLinks() {
                 window.open(CONFIG.DISCORD_INVITE_URL, '_blank', 'noopener,noreferrer');
             } else {
                 // Afficher un message si l'URL n'est pas configurée
-                alert('Le lien Discord sera bientôt disponible. Reviens plus tard !');
-            }
-        });
-    });
-}
-
-// ============================================
-// Liens "Plus d'info" des événements
-// ============================================
-function initEventInfoLinks() {
-    const eventInfoLinks = document.querySelectorAll('[id^="discordBtnEvent"]');
-    
-    eventInfoLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            // Ouvrir Discord
-            if (CONFIG.DISCORD_INVITE_URL && CONFIG.DISCORD_INVITE_URL !== "https://discord.gg/TON_INVITATION") {
-                window.open(CONFIG.DISCORD_INVITE_URL, '_blank', 'noopener,noreferrer');
-            } else {
                 alert('Le lien Discord sera bientôt disponible. Reviens plus tard !');
             }
         });

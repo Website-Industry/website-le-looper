@@ -699,6 +699,16 @@ a:focus-visible {
     color: var(--color-text);
 }
 
+.role-card-generic {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%);
+    border: 2px dashed var(--color-primary);
+}
+
+.role-card-generic:hover {
+    border-style: solid;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+}
+
 /* ============================================
    CTA Box
    ============================================ */
