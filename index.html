@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Le Looper - Une communauté toulousaine pour créer, expérimenter et partager autour de la musique numérique. Rejoins la boucle !">
+    <meta property="og:title" content="Le Looper - Création musicale numérique à Toulouse">
+    <meta property="og:description" content="Collectif informel pour la musique numérique : ateliers, jams, rencontres. Inclusion, bienveillance, accessibilité.">
+    <meta property="og:type" content="website">
+    <title>Le Looper - Création musicale numérique à Toulouse</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" role="navigation" aria-label="Navigation principale">
+        <div class="nav-container">
+            <a href="#accueil" class="logo" aria-label="Le Looper - Retour à l'accueil">Le Looper</a>
+            <button class="menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#projet" class="nav-link">Projet</a></li>
+                <li><a href="#formats" class="nav-link">Formats</a></li>
+                <li><a href="#impliquer" class="nav-link">S'impliquer</a></li>
+                <li><a href="#agenda" class="nav-link">Agenda</a></li>
+                <li><a href="#archive" class="nav-link">Archive</a></li>
+                <li><a href="manifesto.html" class="nav-link">Manifeste</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="accueil" class="hero" aria-labelledby="hero-title">
+        <div class="hero-background"></div>
+        <div class="hero-content">
+            <h1 id="hero-title" class="hero-title">Le Looper</h1>
+            <p class="hero-subtitle">Une communauté toulousaine pour créer, expérimenter et partager autour de la musique numérique.</p>
+            <div class="hero-buttons">
+                <a href="#" class="btn btn-primary" id="discordBtn" aria-label="Rejoindre le Discord du Looper">Rejoindre le Discord</a>
+                <a href="#projet" class="btn btn-secondary">Découvrir le projet</a>
+            </div>
+        </div>
+        <div class="scroll-indicator" aria-hidden="true">
+            <span></span>
+        </div>
+    </section>
+
+    <!-- Section: C'est quoi ? -->
+    <section id="projet" class="section" aria-labelledby="projet-title">
+        <div class="container">
+            <h2 id="projet-title" class="section-title">C'est quoi ?</h2>
+            <div class="content-card">
+                <p class="lead">Le Looper est un <strong>collectif informel</strong> qui rassemble des passionné·es de création musicale numérique à Toulouse.</p>
+                <p>Notre objectif ? Créer un <strong>espace de pratique, de rencontres et de transmission</strong> autour de la musique numérique au sens large : MAO, machines, live sets, live coding, sound design, beatmaking, improvisation, looping…</p>
+                <p>Nous voulons <strong>rassembler des gens de scènes différentes</strong>, décloisonner les styles, et rendre la pratique accessible à toutes et tous, sans barrière d'expertise.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Pourquoi une communauté ? -->
+    <section id="communaute" class="section section-alt" aria-labelledby="communaute-title">
+        <div class="container">
+            <h2 id="communaute-title" class="section-title">Pourquoi une communauté ?</h2>
+            <div class="grid-2">
+                <div class="content-card">
+                    <h3>Apprendre ensemble</h3>
+                    <p>On progresse plus vite quand on partage techniques, astuces et découvertes. La transmission et l'entraide sont au cœur du projet.</p>
+                </div>
+                <div class="content-card">
+                    <h3>Décloisonner</h3>
+                    <p>Pas de frontières de styles. Électronique, hip-hop, expérimental, ambient… Tous les univers se rencontrent et s'enrichissent mutuellement.</p>
+                </div>
+                <div class="content-card">
+                    <h3>Créer des opportunités</h3>
+                    <p>Collaborations, scènes, ateliers, jams… Ensemble, on crée des moments et des projets qui n'existeraient pas seuls.</p>
+                </div>
+                <div class="content-card">
+                    <h3>Rendre accessible</h3>
+                    <p>Anti-élite, anti-expertise obligatoire. Que tu sois débutant·e ou confirmé·e, tu as ta place. Le DIY et l'expérimentation sont encouragés.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: À quoi ça ressemble ? -->
+    <section id="formats" class="section" aria-labelledby="formats-title">
+        <div class="container">
+            <h2 id="formats-title" class="section-title">À quoi ça ressemble ?</h2>
+            <div class="content-card">
+                <p class="lead">Des formats variés pour explorer et partager :</p>
+                <ul class="formats-list">
+                    <li><strong>Jam / sessions d'impro</strong> — improvisation collective, live sets</li>
+                    <li><strong>Ateliers outils</strong> — découverte de logiciels et techniques (Ableton, Bitwig, Renoise, Sonic Pi, TidalCycles, Strudel…)</li>
+                    <li><strong>Écoutes collectives / démos</strong> — partage de créations, retours bienveillants</li>
+                    <li><strong>Mini-performances</strong> — moments de live, showcases</li>
+                    <li><strong>Rencontres / échanges</strong> — discussions, partage d'expériences</li>
+                </ul>
+                <p class="note">Rythme envisagé : <strong>événements plutôt mensuels</strong> au départ.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Comment s'impliquer ? -->
+    <section id="impliquer" class="section section-alt" aria-labelledby="impliquer-title">
+        <div class="container">
+            <h2 id="impliquer-title" class="section-title">Comment s'impliquer ?</h2>
+            <div class="content-card">
+                <p class="lead">Pas besoin d'être expert·e pour contribuer ! Voici des idées de micro-engagements :</p>
+                <div class="roles-grid">
+                    <div class="role-card">
+                        <span class="role-icon" aria-hidden="true">👋</span>
+                        <p>Venir une première fois et dire bonjour</p>
+                    </div>
+                    <div class="role-card">
+                        <span class="role-icon" aria-hidden="true">💡</span>
+                        <p>Partager un outil / patch / technique en 5 minutes</p>
+                    </div>
+                    <div class="role-card">
+                        <span class="role-icon" aria-hidden="true">🎵</span>
+                        <p>Proposer un thème de jam</p>
+                    </div>
+                    <div class="role-card">
+                        <span class="role-icon" aria-hidden="true">📍</span>
+                        <p>Aider à trouver un lieu</p>
+                    </div>
+                    <div class="role-card">
+                        <span class="role-icon" aria-hidden="true">🤝</span>
+                        <p>Aider à l'accueil le jour J</p>
+                    </div>
+                    <div class="role-card">
+                        <span class="role-icon" aria-hidden="true">🎨</span>
+                        <p>Faire une mini-affiche / visuel</p>
+                    </div>
+                    <div class="role-card">
+                        <span class="role-icon" aria-hidden="true">📹</span>
+                        <p>Filmer 30 secondes pour l'archive</p>
+                    </div>
+                    <div class="role-card">
+                        <span class="role-icon" aria-hidden="true">🔌</span>
+                        <p>Ramener une enceinte / câble / multiprise</p>
+                    </div>
+                    <div class="role-card">
+                        <span class="role-icon" aria-hidden="true">🎓</span>
+                        <p>Proposer un atelier découverte</p>
+                    </div>
+                </div>
+                <div class="cta-box">
+                    <p class="quote">"Je donne l'impulsion, mais le Looper se construit à plusieurs."</p>
+                    <a href="#" class="btn btn-primary" id="discordBtn2">Rejoindre le Discord</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Agenda -->
+    <section id="agenda" class="section" aria-labelledby="agenda-title">
+        <div class="container">
+            <h2 id="agenda-title" class="section-title">Agenda</h2>
+            <div class="content-card">
+                <p class="note">Planning en construction — les prochaines dates seront annoncées sur Discord.</p>
+                <div class="events-list">
+                    <div class="event-card">
+                        <div class="event-date">À venir</div>
+                        <h3>Prochaine session</h3>
+                        <p>Date et format à définir ensemble sur Discord. Rejoins-nous pour proposer et voter !</p>
+                    </div>
+                    <div class="event-card">
+                        <div class="event-date">En discussion</div>
+                        <h3>Atelier découverte</h3>
+                        <p>Plusieurs propositions en cours : Sonic Pi, TidalCycles, Ableton Live… À suivre !</p>
+                    </div>
+                </div>
+                <p class="cta-text">Pour proposer ou voter pour un événement, <a href="#" id="discordBtn3">rejoins le Discord</a>.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Archive -->
+    <section id="archive" class="section section-alt" aria-labelledby="archive-title">
+        <div class="container">
+            <h2 id="archive-title" class="section-title">Archive</h2>
+            <div class="content-card">
+                <div class="archive-placeholder">
+                    <p class="lead">Bientôt : premières sessions</p>
+                    <p>Rejoins le Discord pour lancer la boucle et créer ensemble les premiers moments du Looper.</p>
+                    <a href="#" class="btn btn-primary" id="discordBtn4">Rejoindre le Discord</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Le Looper</h3>
+                    <p>Création musicale numérique à Toulouse</p>
+                    <p>Ponts entre musicien·nes, sans frontières de style</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Rejoins-nous</h3>
+                    <div class="footer-links">
+                        <a href="#" class="footer-link" id="discordBtnFooter" aria-label="Rejoindre le Discord">
+                            <span aria-hidden="true">💬</span> Discord
+                        </a>
+                        <a href="#" class="footer-link" id="instagramBtn" aria-label="Suivre sur Instagram">
+                            <span aria-hidden="true">📷</span> Instagram
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>En savoir plus</h3>
+                    <ul class="footer-links-list">
+                        <li><a href="manifesto.html" class="footer-link">Manifeste & valeurs</a></li>
+                        <li><a href="#projet" class="footer-link">Le projet</a></li>
+                        <li><a href="#impliquer" class="footer-link">S'impliquer</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Toulouse, France</p>
+                <p>&copy; <span id="currentYear"></span> Le Looper. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
