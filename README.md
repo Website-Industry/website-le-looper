@@ -16,7 +16,7 @@ Ce site est hébergé sur **Vercel**. Il s'agit d'un site statique (HTML/CSS/JS 
 ```
 .
 ├── index.html          # Page d'accueil / Landing page
-├── manifesto.html      # Page manifeste & valeurs
+├── valeurs.html        # Page manifeste & valeurs
 ├── styles.css          # Feuille de style principale
 ├── script.js           # JavaScript (navigation, liens, etc.)
 ├── README.md           # Ce fichier
@@ -85,7 +85,7 @@ Les couleurs, espacements et typographie sont définis via des variables CSS dan
 
 Le contenu est directement intégré dans les fichiers HTML. Pour modifier le texte :
 - `index.html` : contenu de la landing page
-- `manifesto.html` : contenu du manifeste
+- `valeurs.html` : contenu du manifeste et valeurs
 
 ## 🔒 Licence
 
