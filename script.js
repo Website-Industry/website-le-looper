@@ -45,6 +45,15 @@ function initNavigation() {
         });
     });
 
+    // Fermer le menu quand on clique sur un lien dans les dropdowns
+    const dropdownLinks = document.querySelectorAll('.dropdown-link');
+    dropdownLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            menuToggle.setAttribute('aria-expanded', 'false');
+            navMenu.classList.remove('active');
+        });
+    });
+
     // Fermer le menu si on clique en dehors
     document.addEventListener('click', function(event) {
         const isClickInsideNav = navMenu.contains(event.target) || menuToggle.contains(event.target);
