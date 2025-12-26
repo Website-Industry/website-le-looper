@@ -1,0 +1,20 @@
+{
+  "name": "le-looper",
+  "version": "1.0.0",
+  "description": "Site web du collectif Le Looper - communauté de création musicale numérique à Toulouse",
+  "scripts": {
+    "dev": "serve -l 3000"
+  },
+  "keywords": [
+    "musique",
+    "toulouse",
+    "collectif",
+    "musique-numerique"
+  ],
+  "author": "marc-charton",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "serve": "^14.2.1"
+  }
+}
+
