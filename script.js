@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initPlatformCards();
     initYear();
     initSmoothScroll();
+    initParallax();
 });
 
 // ============================================
@@ -228,6 +229,58 @@ window.addEventListener('error', function(e) {
     console.error('Erreur JavaScript:', e.error);
     // Ne pas afficher d'alerte à l'utilisateur pour éviter de polluer l'UX
 });
+
+// ============================================
+// Effet de parallaxe pour le hero
+// ============================================
+function initParallax() {
+    const hero = document.querySelector('.hero');
+    const heroBackground = document.querySelector('.hero-background');
+    
+    if (!hero || !heroBackground) return;
+    
+    // Vérifier si l'utilisateur préfère réduire les animations
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    
+    if (prefersReducedMotion) {
+        return; // Pas d'effet de parallaxe si l'utilisateur préfère réduire les animations
+    }
+    
+    function updateParallax() {
+        const heroRect = hero.getBoundingClientRect();
+        const scrollY = window.scrollY;
+        const heroTop = hero.offsetTop;
+        const heroHeight = hero.offsetHeight;
+        
+        // Calculer si on est dans la zone du hero
+        const scrollPosition = scrollY - heroTop;
+        const heroVisible = scrollY >= heroTop && scrollY <= heroTop + heroHeight;
+        
+        if (heroVisible) {
+            // L'image se déplace à 50% de la vitesse du scroll (effet parallaxe)
+            const parallaxOffset = scrollPosition * 0.5;
+            heroBackground.style.transform = `translateY(${parallaxOffset}px)`;
+        } else if (scrollY < heroTop) {
+            // Avant le hero, pas de déplacement
+            heroBackground.style.transform = 'translateY(0)';
+        }
+    }
+    
+    // Utiliser requestAnimationFrame pour de meilleures performances
+    let ticking = false;
+    function onScroll() {
+        if (!ticking) {
+            window.requestAnimationFrame(function() {
+                updateParallax();
+                ticking = false;
+            });
+            ticking = true;
+        }
+    }
+    
+    window.addEventListener('scroll', onScroll, { passive: true });
+    updateParallax(); // Appel initial pour positionner correctement au chargement
+}
 
 // ============================================
 // Amélioration de l'accessibilité au clavier
