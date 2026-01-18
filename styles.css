@@ -421,7 +421,7 @@ a:focus-visible {
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url('/img/hero.png');
+    background-image: url('/img/hero/hero.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -431,7 +431,7 @@ a:focus-visible {
 
 @media (prefers-color-scheme: dark) {
     .hero-background {
-        background-image: url('/img/hero-dark.png');
+        background-image: url('/img/hero/hero-dark.png');
     }
     
     .hero-subtitle {
