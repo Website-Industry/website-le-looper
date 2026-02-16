@@ -411,8 +411,8 @@ a:focus-visible {
 }
 
 .hero-small {
-    min-height: 50vh;
-    padding-top: calc(80px + var(--spacing-xl));
+    min-height: 40vh;
+    padding-top: calc(80px + var(--spacing-lg));
 }
 
 .hero-background {
@@ -501,8 +501,11 @@ a:focus-visible {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    min-height: calc(100vh - 80px - var(--spacing-2xl) * 2);
     width: 100%;
+}
+
+.hero-home .hero-content {
+    min-height: calc(100vh - 80px - var(--spacing-2xl) * 2);
 }
 
 .hero-logo {
@@ -560,6 +563,19 @@ a:focus-visible {
     max-width: 500px;
     margin-left: auto;
     margin-right: auto;
+}
+
+/* Hero plus compact pour les pages de format (Horizon Live Coding, Workflow) */
+.hero-small .hero-title {
+    margin-bottom: var(--spacing-xs);
+}
+
+.hero-small .hero-subtitle {
+    margin-bottom: var(--spacing-md);
+}
+
+.hero-small .btn {
+    margin-top: 0;
 }
 
 .hero-buttons {
