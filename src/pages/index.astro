@@ -2,6 +2,31 @@
 import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+
+// Données agenda : tous les événements (à venir + archives). date = ISO YYYY-MM-DD ou null ("En discussion").
+const allAgendaEvents = [
+  { date: '2026-02-22', dateLabel: 'Dimanche 22 février 2026', title: 'Atelier "Horizon Live Coding #2"', time: '14h - 16h', desc: 'Découverte de Strudel.cc', location: '📍 <a href="https://eurekafe.fr/" target="_blank" rel="noopener noreferrer" class="event-location-link">Eurêkafé</a>, 5 Impasse Colombette, Toulouse', links: [{ href: '/horizon-live-coding.html', text: 'Découvrir le format →', secondary: true }, { href: 'https://luma.com/b3xenym8', text: 'Plus d\'info →' }] },
+  { date: '2026-03-08', dateLabel: 'Samedi 8 mars 2026', title: 'Atelier "Horizon Live Coding #3"', time: '14h - 16h', desc: 'Session de pratique collective de live coding', location: '📍 <a href="https://eurekafe.fr/" target="_blank" rel="noopener noreferrer" class="event-location-link">Eurêkafé</a>, 5 Impasse Colombette, Toulouse', links: [{ href: '/horizon-live-coding.html', text: 'Découvrir le format →', secondary: true }, { href: 'https://luma.com/0m6imtz6', text: 'Plus d\'info →' }] },
+  { date: '2026-04-19', dateLabel: 'Samedi 19 avril 2026', title: 'Atelier "Horizon Live Coding #4"', time: '14h - 16h', desc: 'Session de pratique collective de live coding', location: '📍 <a href="https://eurekafe.fr/" target="_blank" rel="noopener noreferrer" class="event-location-link">Eurêkafé</a>, 5 Impasse Colombette, Toulouse', links: [{ href: '/horizon-live-coding.html', text: 'Découvrir le format →', secondary: true }, { href: 'https://luma.com/73hllnf6', text: 'Plus d\'info →' }] },
+  { date: null, dateLabel: 'En discussion', title: 'Écoute collective d\'albums', desc: 'Session d\'écoute collective pour découvrir et partager des albums. Format et date à définir.', links: [{ href: '#impliquer', text: 'Ça m\'intéresse ! →' }] },
+  { date: null, dateLabel: 'En discussion', title: 'Workflow #2', paragraphs: ['Deuxième session de la série Workflow. Thème et date à venir.', 'Vous souhaitez proposer un contenu ? Partagez votre process musical, vos compos, votre univers… Contactez-nous via Discord pour proposer votre intervention !'], links: [{ href: '/workflow.html', text: 'Découvrir le format →', secondary: true }, { href: '#impliquer', text: 'Ça m\'intéresse ! →' }] },
+  { date: '2025-01-18', dateLabel: 'Dimanche 18 janvier 2025', title: 'Atelier "Horizon Live Coding #1"', time: '13h - 15h', desc: 'Découverte de Strudel.cc', location: '📍 <a href="https://eurekafe.fr/" target="_blank" rel="noopener noreferrer" class="event-location-link">Eurêkafé</a>, 5 Impasse Colombette, Toulouse', links: [{ href: '/horizon-live-coding.html', text: 'Découvrir le format →', secondary: true }, { href: 'https://tour-de-controle.notion.site/D-couverte-de-struddel-cc-2102974a82658071a542d2c0dbd6d6f6', text: 'En savoir plus →' }] },
+  { date: '2025-06-01', dateLabel: 'Juin 2025', title: 'Workflow #1 — Sonic Pi', desc: 'Premier atelier de la série Workflow dédié à Sonic Pi, outil de live coding pour créer de la musique en temps réel.', links: [{ href: '/workflow.html', text: 'Découvrir le format →', secondary: true }, { href: 'https://www.youtube.com/watch?v=6deSpsZ6SCw', text: 'En savoir plus →' }] },
+  { date: '2024-06-01', dateLabel: 'Avril 2023 — Juin 2024', title: 'Apéros mensuels', desc: 'Rencontres mensuelles régulières pour échanger, partager et créer ensemble autour de la musique numérique.', links: [{ href: 'https://www.facebook.com/events/189899184198290/?acontext=%7B%22event_action_history%22%3A[%7B%22surface%22%3A%22group%22%7D]%7D', text: 'En savoir plus →' }] },
+];
+
+const today = new Date();
+today.setHours(0, 0, 0, 0);
+
+const upcomingEvents = allAgendaEvents
+  .filter((e) => e.date === null || new Date(e.date) >= today)
+  .sort((a, b) => (a.date == null ? 1 : b.date == null ? -1 : (a.date as string).localeCompare(b.date as string)));
+
+const archivedEvents = allAgendaEvents
+  .filter((e) => e.date !== null && new Date(e.date) < today)
+  .sort((a, b) => (b.date as string).localeCompare(a.date as string));
+
+const todayStr = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
 ---
 
 <Layout
@@ -160,82 +185,65 @@ import Footer from '../components/Footer.astro';
       <p class="section-subtitle" style="text-align: center;">Tous les événements du Looper sont également disponibles sur Luma : <a href="https://luma.com/user/lelooper" target="_blank" rel="noopener noreferrer" class="format-link">consulter le calendrier complet</a>.</p>
       <div class="content-card">
         <div class="events-list">
-          <div class="event-card">
-            <div class="event-date">Dimanche 22 février 2025</div>
-            <h3>Atelier "Horizon Live Coding #2"</h3>
-            <p><strong>14h - 16h</strong> — Découverte de Strudel.cc</p>
-            <p class="event-location">📍 <a href="https://eurekafe.fr/" target="_blank" rel="noopener noreferrer" class="event-location-link">Eurêkafé</a>, 5 Impasse Colombette, Toulouse</p>
-            <div class="event-links">
-              <a href="/horizon-live-coding.html" class="event-info-link event-info-link-secondary">Découvrir le format →</a>
-              <a href="https://luma.com/b3xenym8" target="_blank" rel="noopener noreferrer" class="event-info-link">Plus d'info →</a>
+          {upcomingEvents.map((event) => (
+            <div class:list={['event-card', event.date === todayStr && 'event-card--today']}>
+              <div class="event-date">{event.dateLabel}{event.date === todayStr && <span class="event-tag">aujourd'hui</span>}</div>
+              <h3>{event.title}</h3>
+              {'paragraphs' in event ? (
+                event.paragraphs!.map((p) => <p>{p}</p>)
+              ) : (
+                <p>
+                  {event.time ? <><strong>{event.time}</strong> — </> : null}{event.desc}
+                </p>
+              )}
+              {event.location && <p class="event-location" set:html={event.location} />}
+              {event.links.length > 1 ? (
+                <div class="event-links">
+                  {event.links.map((link) => (
+                    <a href={link.href} class:list={['event-info-link', (link as { href: string; text: string; secondary?: boolean }).secondary && 'event-info-link-secondary']} target={link.href.startsWith('http') ? '_blank' : undefined} rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}>
+                      {link.text}
+                    </a>
+                  ))}
+                </div>
+              ) : event.links.length === 1 ? (
+                <a href={event.links[0].href} class="event-info-link">
+                  {event.links[0].text}
+                </a>
+              ) : null}
             </div>
-          </div>
-          <div class="event-card">
-            <div class="event-date">Samedi 8 mars 2025</div>
-            <h3>Atelier "Horizon Live Coding #3"</h3>
-            <p><strong>14h - 16h</strong> — Session de pratique collective de live coding</p>
-            <p class="event-location">📍 <a href="https://eurekafe.fr/" target="_blank" rel="noopener noreferrer" class="event-location-link">Eurêkafé</a>, 5 Impasse Colombette, Toulouse</p>
-            <div class="event-links">
-              <a href="/horizon-live-coding.html" class="event-info-link event-info-link-secondary">Découvrir le format →</a>
-              <a href="https://luma.com/0m6imtz6" target="_blank" rel="noopener noreferrer" class="event-info-link">Plus d'info →</a>
-            </div>
-          </div>
-          <div class="event-card">
-            <div class="event-date">Samedi 19 avril 2025</div>
-            <h3>Atelier "Horizon Live Coding #4"</h3>
-            <p><strong>14h - 16h</strong> — Session de pratique collective de live coding</p>
-            <p class="event-location">📍 <a href="https://eurekafe.fr/" target="_blank" rel="noopener noreferrer" class="event-location-link">Eurêkafé</a>, 5 Impasse Colombette, Toulouse</p>
-            <div class="event-links">
-              <a href="/horizon-live-coding.html" class="event-info-link event-info-link-secondary">Découvrir le format →</a>
-              <a href="https://luma.com/73hllnf6" target="_blank" rel="noopener noreferrer" class="event-info-link">Plus d'info →</a>
-            </div>
-          </div>
-          <div class="event-card">
-            <div class="event-date">En discussion</div>
-            <h3>Écoute collective d'albums</h3>
-            <p>Session d'écoute collective pour découvrir et partager des albums. Format et date à définir.</p>
-            <a href="#impliquer" class="event-info-link">Ça m'intéresse ! →</a>
-          </div>
-          <div class="event-card">
-            <div class="event-date">En discussion</div>
-            <h3>Workflow #2</h3>
-            <p>Deuxième session de la série Workflow. Thème et date à venir.</p>
-            <p>Vous souhaitez proposer un contenu ? Partagez votre process musical, vos compos, votre univers… Contactez-nous via Discord pour proposer votre intervention !</p>
-            <div class="event-links">
-              <a href="/workflow.html" class="event-info-link event-info-link-secondary">Découvrir le format →</a>
-              <a href="#impliquer" class="event-info-link">Ça m'intéresse ! →</a>
-            </div>
-          </div>
+          ))}
         </div>
 
         <div class="archive-section">
           <h3 class="archive-section-title">Archives</h3>
           <div class="archive-list">
-            <div class="archive-item">
-              <div class="archive-date">Dimanche 18 janvier 2025</div>
-              <h4>Atelier "Horizon Live Coding #1"</h4>
-              <p><strong>13h - 15h</strong> — Découverte de Strudel.cc</p>
-              <p class="event-location">📍 <a href="https://eurekafe.fr/" target="_blank" rel="noopener noreferrer" class="event-location-link">Eurêkafé</a>, 5 Impasse Colombette, Toulouse</p>
-              <div class="archive-links">
-                <a href="/horizon-live-coding.html" class="archive-info-link archive-info-link-secondary">Découvrir le format →</a>
-                <a href="https://tour-de-controle.notion.site/D-couverte-de-struddel-cc-2102974a82658071a542d2c0dbd6d6f6" target="_blank" rel="noopener noreferrer" class="archive-info-link">En savoir plus →</a>
+            {archivedEvents.map((event) => (
+              <div class="archive-item">
+                <div class="archive-date">{event.dateLabel}</div>
+                <h4>{event.title}</h4>
+                {'paragraphs' in event ? (
+                  event.paragraphs!.map((p) => <p>{p}</p>)
+                ) : (
+                  <p>
+                    {event.time ? <><strong>{event.time}</strong> — </> : null}{event.desc}
+                  </p>
+                )}
+                {event.location && <p class="event-location" set:html={event.location} />}
+                {event.links.length > 1 ? (
+                  <div class="archive-links">
+                    {event.links.map((link) => (
+                      <a href={link.href} class:list={['archive-info-link', (link as { href: string; text: string; secondary?: boolean }).secondary && 'archive-info-link-secondary']} target={link.href.startsWith('http') ? '_blank' : undefined} rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}>
+                        {link.text}
+                      </a>
+                    ))}
+                  </div>
+                ) : event.links.length === 1 ? (
+                  <a href={event.links[0].href} class="archive-info-link" target={event.links[0].href.startsWith('http') ? '_blank' : undefined} rel={event.links[0].href.startsWith('http') ? 'noopener noreferrer' : undefined}>
+                    {event.links[0].text}
+                  </a>
+                ) : null}
               </div>
-            </div>
-            <div class="archive-item">
-              <div class="archive-date">Juin 2025</div>
-              <h4>Workflow #1 — Sonic Pi</h4>
-              <p>Premier atelier de la série Workflow dédié à Sonic Pi, outil de live coding pour créer de la musique en temps réel.</p>
-              <div class="archive-links">
-                <a href="/workflow.html" class="archive-info-link archive-info-link-secondary">Découvrir le format →</a>
-                <a href="https://www.youtube.com/watch?v=6deSpsZ6SCw" target="_blank" rel="noopener noreferrer" class="archive-info-link">En savoir plus →</a>
-              </div>
-            </div>
-            <div class="archive-item">
-              <div class="archive-date">Avril 2023 — Juin 2024</div>
-              <h4>Apéros mensuels</h4>
-              <p>Rencontres mensuelles régulières pour échanger, partager et créer ensemble autour de la musique numérique.</p>
-              <a href="https://www.facebook.com/events/189899184198290/?acontext=%7B%22event_action_history%22%3A[%7B%22surface%22%3A%22group%22%7D]%7D" target="_blank" rel="noopener noreferrer" class="archive-info-link">En savoir plus →</a>
-            </div>
+            ))}
           </div>
         </div>
 
