@@ -12,6 +12,7 @@ Tous les changements notables du projet sont documentés dans ce fichier.
 - Tag **« aujourd'hui »** sur l'événement du jour dans l'agenda (mise en avant visuelle de la carte).
 - Lien **page Facebook** en plus du groupe (config, cartes « Où nous trouver », footer).
 - Section **Ressources** dans le footer (lien Page Ressources, Fiche récap Strudel).
+- **Action GitHub** : publication automatique de la dernière section du CHANGELOG sur un canal Discord (webhook) à chaque modification de `CHANGELOG.md` sur `main`.
 
 ### Modifié
 - Navigation et footer : composants Astro (`Nav.astro`, `Footer.astro`), slots layout.

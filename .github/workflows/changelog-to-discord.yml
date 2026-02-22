@@ -1,0 +1,48 @@
+name: Changelog to Discord
+
+on:
+  push:
+    branches: [main]
+    paths: ['CHANGELOG.md']
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Extract latest changelog section
+        id: extract
+        run: |
+          # From first "## [date]" to next "---" (section separator)
+          awk '/^## \[/{p=1} p{print} /^---$/ && p{exit}' CHANGELOG.md > section.txt
+          # Truncate to fit Discord embed description limit (4096)
+          MAX=4000
+          if [ $(wc -c < section.txt) -gt $MAX ]; then
+            head -c $MAX section.txt > section_truncated.txt
+            echo "" >> section_truncated.txt
+            echo "… (suite dans le CHANGELOG)" >> section_truncated.txt
+            mv section_truncated.txt section.txt
+          fi
+          # Extract date for embed title (e.g. "## [2026-02-22]" -> "2026-02-22")
+          DATE=$(sed -n '1s/^## \[\(.*\)\]/\1/p' section.txt)
+          echo "date=$DATE" >> $GITHUB_OUTPUT
+
+      - name: Send to Discord
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        run: |
+          if [ -z "$DISCORD_WEBHOOK_URL" ]; then
+            echo "DISCORD_WEBHOOK_URL secret is not set; skipping Discord notification."
+            exit 0
+          fi
+          PAYLOAD=$(jq -n \
+            --rawfile desc section.txt \
+            --arg date "${{ steps.extract.outputs.date }}" \
+            '{embeds: [{title: ("Nouveautés – " + $date), description: $desc, color: 3447003}]}')
+          curl -s -S -X POST "$DISCORD_WEBHOOK_URL" \
+            -H "Content-Type: application/json" \
+            -d "$PAYLOAD"
