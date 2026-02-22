@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Strudel — Fiches Récap | Ressources — Le Looper</title>
+<link rel="icon" type="image/png" href="/favicon.png">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;700;800&display=swap');
+
+  :root {
+    --bg: #0a0a0f;
+    --surface: #12121a;
+    --border: #1e1e2e;
+    --accent1: #ff6b35;
+    --accent2: #c77dff;
+    --accent3: #06ffa5;
+    --accent4: #38bdf8;
+    --accent5: #fbbf24;
+    --accent6: #f472b6;
+    --text: #e8e8f0;
+    --muted: #6b6b80;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Syne', sans-serif;
+    min-height: 100vh;
+    padding: 3rem 2rem;
+  }
+
+  .back-to-ressources {
+    display: inline-block;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    margin-bottom: 1.5rem;
+    transition: color 0.2s;
+  }
+  .back-to-ressources:hover { color: var(--accent1); }
+
+  .grid-bg {
+    position: fixed; inset: 0; z-index: 0;
+    background-image:
+      linear-gradient(rgba(255,107,53,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,107,53,0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .container { position: relative; z-index: 1; max-width: 960px; margin: 0 auto; }
+
+  header { margin-bottom: 2.5rem; border-left: 3px solid var(--accent1); padding-left: 1.5rem; }
+
+  .label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem; color: var(--accent1);
+    letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 0.5rem;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 800; line-height: 1;
+    background: linear-gradient(135deg, #ff6b35, #c77dff);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+
+  .subtitle { color: var(--muted); font-size: 0.9rem; margin-top: 0.6rem; }
+
+  /* TABS */
+  .tabs {
+    display: flex; flex-wrap: wrap; gap: 0.25rem;
+    margin-bottom: 2.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .tab-btn {
+    font-family: 'Space Mono', monospace; font-size: 0.65rem;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--muted); background: none; border: none;
+    border-bottom: 2px solid transparent;
+    padding: 0.6rem 1rem; cursor: pointer;
+    transition: all 0.2s; margin-bottom: -1px;
+  }
+  .tab-btn:hover { color: var(--text); }
+  .tab-btn[data-color="orange"].active  { color: var(--accent1); border-bottom-color: var(--accent1); }
+  .tab-btn[data-color="blue"].active    { color: var(--accent4); border-bottom-color: var(--accent4); }
+  .tab-btn[data-color="green"].active   { color: var(--accent3); border-bottom-color: var(--accent3); }
+  .tab-btn[data-color="pink"].active    { color: var(--accent6); border-bottom-color: var(--accent6); }
+  .tab-btn[data-color="yellow"].active  { color: var(--accent5); border-bottom-color: var(--accent5); }
+
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+
+  /* SECTION TITLE */
+  .section-title {
+    font-family: 'Space Mono', monospace; font-size: 0.62rem;
+    letter-spacing: 0.25em; text-transform: uppercase;
+    margin-bottom: 0.9rem; margin-top: 1.75rem;
+    display: flex; align-items: center; gap: 0.75rem;
+  }
+  .section-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+  .st-orange { color: var(--accent1); }
+  .st-blue   { color: var(--accent4); }
+  .st-green  { color: var(--accent3); }
+  .st-pink   { color: var(--accent6); }
+  .st-yellow { color: var(--accent5); }
+
+  /* CARD */
+  .card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 8px; padding: 1.25rem; margin-bottom: 1.25rem;
+  }
+
+  /* NOTATION ROW */
+  .notation-row {
+    display: grid; grid-template-columns: 185px 90px 1fr;
+    gap: 1rem; align-items: center;
+    padding: 0.65rem 0.75rem; border-radius: 6px;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid transparent; transition: border-color 0.2s;
+    margin-bottom: 0.4rem;
+  }
+  .notation-row:hover { border-color: var(--border); }
+  .notation-row:last-child { margin-bottom: 0; }
+  .concept-name { font-weight: 700; font-size: 0.88rem; color: var(--text); }
+
+  /* BADGES */
+  .badge {
+    font-family: 'Space Mono', monospace; font-size: 0.78rem;
+    padding: 0.2rem 0.5rem; border-radius: 4px; text-align: center;
+  }
+  .badge-purple { color: var(--accent2); background: rgba(199,125,255,0.1); border: 1px solid rgba(199,125,255,0.2); }
+  .badge-blue   { color: var(--accent4); background: rgba(56,189,248,0.1);  border: 1px solid rgba(56,189,248,0.2); }
+  .badge-green  { color: var(--accent3); background: rgba(6,255,165,0.1);   border: 1px solid rgba(6,255,165,0.2); }
+  .badge-pink   { color: var(--accent6); background: rgba(244,114,182,0.1); border: 1px solid rgba(244,114,182,0.2); }
+  .badge-yellow { color: var(--accent5); background: rgba(251,191,36,0.1);  border: 1px solid rgba(251,191,36,0.2); }
+
+  /* CODE INLINE */
+  .code {
+    font-family: 'Space Mono', monospace; font-size: 0.7rem;
+    padding: 0.3rem 0.6rem; border-radius: 4px;
+    overflow-x: auto; white-space: nowrap;
+  }
+  .code-orange { color: var(--accent1); background: rgba(255,107,53,0.07); border: 1px solid rgba(255,107,53,0.15); }
+  .code-blue   { color: var(--accent4); background: rgba(56,189,248,0.05); border: 1px solid rgba(56,189,248,0.1); }
+  .code-green  { color: var(--accent3); background: rgba(6,255,165,0.05);  border: 1px solid rgba(6,255,165,0.1); }
+  .code-pink   { color: var(--accent6); background: rgba(244,114,182,0.05); border: 1px solid rgba(244,114,182,0.1); }
+  .code-yellow { color: var(--accent5); background: rgba(251,191,36,0.05); border: 1px solid rgba(251,191,36,0.1); }
+  .code-muted  { color: var(--muted); background: rgba(255,255,255,0.03);  border: 1px solid var(--border); }
+
+  /* FUNCTION ROW */
+  .fn-row {
+    display: grid; grid-template-columns: 120px 1fr;
+    gap: 1rem; align-items: start;
+    padding: 0.65rem 0.75rem; border-radius: 6px;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid transparent; transition: border-color 0.2s;
+    margin-bottom: 0.4rem;
+  }
+  .fn-row:hover { border-color: var(--border); }
+  .fn-row:last-child { margin-bottom: 0; }
+  .fn-name { font-family: 'Space Mono', monospace; font-size: 0.82rem; font-weight: 700; }
+  .fn-name-orange { color: var(--accent1); }
+  .fn-name-blue   { color: var(--accent4); }
+  .fn-name-green  { color: var(--accent3); }
+  .fn-name-pink   { color: var(--accent6); }
+  .fn-name-yellow { color: var(--accent5); }
+  .fn-desc { font-size: 0.8rem; color: var(--muted); margin-bottom: 0.3rem; line-height: 1.4; }
+
+  /* HIGHLIGHT BOX */
+  .hbox {
+    border-radius: 8px; padding: 0.9rem 1.1rem; margin-bottom: 1.25rem;
+    font-size: 0.85rem; line-height: 1.6; color: var(--text);
+  }
+  .hbox-orange { border: 1px solid rgba(255,107,53,0.3); background: rgba(255,107,53,0.05); }
+  .hbox-blue   { border: 1px solid rgba(56,189,248,0.3); background: rgba(56,189,248,0.05); }
+  .hbox-green  { border: 1px solid rgba(6,255,165,0.3);  background: rgba(6,255,165,0.04); }
+  .hbox-pink   { border: 1px solid rgba(244,114,182,0.3); background: rgba(244,114,182,0.04); }
+  .hbox strong { font-weight: 700; }
+  .hbox-orange strong { color: var(--accent1); }
+  .hbox-blue   strong { color: var(--accent4); }
+  .hbox-green  strong { color: var(--accent3); }
+  .hbox-pink   strong { color: var(--accent6); }
+
+  /* TWO COL */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+
+  /* TIP */
+  .tip {
+    padding: 0.65rem 0.75rem; border-radius: 6px;
+    background: rgba(255,255,255,0.02);
+    margin-bottom: 0.4rem;
+  }
+  .tip:last-child { margin-bottom: 0; }
+  .tip-title { font-size: 0.76rem; font-weight: 700; color: var(--text); margin-bottom: 0.2rem; }
+  .tip-body  { font-family: 'Space Mono', monospace; font-size: 0.68rem; color: var(--muted); line-height: 1.5; }
+
+  /* DRUMS */
+  .drums-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 0.4rem; }
+  .drum-item {
+    padding: 0.5rem 0.65rem; border-radius: 6px;
+    background: rgba(255,255,255,0.02); border: 1px solid var(--border);
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .drum-abbr { font-family: 'Space Mono', monospace; font-size: 0.82rem; color: var(--accent1); font-weight: 700; min-width: 26px; }
+  .drum-name { font-size: 0.76rem; color: var(--muted); }
+
+  /* SCALES */
+  .scales-grid { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .scale-tag {
+    font-family: 'Space Mono', monospace; font-size: 0.7rem;
+    color: var(--accent4); background: rgba(56,189,248,0.07);
+    border: 1px solid rgba(56,189,248,0.2); border-radius: 4px; padding: 0.25rem 0.6rem;
+  }
+
+  /* SIGNAL TAGS */
+  .signal-tag {
+    font-family: 'Space Mono', monospace; font-size: 0.7rem;
+    color: var(--accent3); background: rgba(6,255,165,0.07);
+    border: 1px solid rgba(6,255,165,0.2); border-radius: 4px; padding: 0.25rem 0.6rem;
+  }
+
+  /* ADSR */
+  .adsr-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; }
+  .adsr-item {
+    padding: 0.6rem 0.75rem; border-radius: 6px;
+    background: rgba(255,255,255,0.02);
+    border-left: 2px solid var(--accent3);
+  }
+  .adsr-key { font-family: 'Space Mono', monospace; font-size: 0.78rem; color: var(--accent3); font-weight: 700; }
+  .adsr-val { font-size: 0.74rem; color: var(--muted); margin-top: 0.1rem; }
+
+  /* STRUDEL EDITORS */
+  .editor-block {
+    margin-bottom: 1.25rem; border-radius: 8px; overflow: hidden;
+  }
+  .editor-block-orange { border: 1px solid rgba(255,107,53,0.2); }
+  .editor-block-blue   { border: 1px solid rgba(56,189,248,0.2); }
+  .editor-block-green  { border: 1px solid rgba(6,255,165,0.2); }
+  .editor-block-pink   { border: 1px solid rgba(244,114,182,0.2); }
+
+  .editor-label {
+    font-family: 'Space Mono', monospace; font-size: 0.62rem;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--muted); background: var(--surface);
+    padding: 0.45rem 0.85rem; border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .editor-label::before { content: '▶'; font-size: 0.5rem; }
+  .editor-block-orange .editor-label::before { color: var(--accent1); }
+  .editor-block-blue   .editor-label::before { color: var(--accent4); }
+  .editor-block-green  .editor-label::before { color: var(--accent3); }
+  .editor-block-pink   .editor-label::before { color: var(--accent6); }
+
+  strudel-repl { display: block; min-height: 280px; }
+  strudel-repl iframe { width: 100%; min-height: 280px; border: none; border-radius: 0 0 8px 8px; }
+
+  /* RECAP TABLE */
+  .recap-table { width: 100%; border-collapse: collapse; margin-bottom: 1.25rem; }
+  .recap-table th {
+    font-family: 'Space Mono', monospace; font-size: 0.62rem;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--muted); font-weight: 400;
+    text-align: left; padding: 0.5rem 0.75rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .recap-table td {
+    padding: 0.55rem 0.75rem;
+    font-size: 0.82rem;
+    border-bottom: 1px solid rgba(255,255,255,0.03);
+    vertical-align: top;
+  }
+  .recap-table tr:hover td { background: rgba(255,255,255,0.015); }
+  .recap-table td:first-child {
+    font-family: 'Space Mono', monospace; font-size: 0.78rem; font-weight: 700;
+    white-space: nowrap;
+  }
+  .recap-table td:nth-child(2) { color: var(--muted); font-size: 0.78rem; }
+  .recap-table td:last-child {
+    font-family: 'Space Mono', monospace; font-size: 0.68rem; color: var(--accent3);
+  }
+
+  footer {
+    margin-top: 3rem; text-align: center;
+    font-family: 'Space Mono', monospace; font-size: 0.62rem;
+    color: var(--muted); letter-spacing: 0.1em;
+  }
+
+  @media (max-width: 640px) {
+    .two-col { grid-template-columns: 1fr; }
+    .notation-row { grid-template-columns: 1fr; gap: 0.4rem; }
+    .fn-row { grid-template-columns: 1fr; }
+    .adsr-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="grid-bg"></div>
+<div class="container">
+
+  <a href="ressources.html" class="back-to-ressources">← Retour aux ressources</a>
+
+  <header>
+    <div class="label">strudel.cc / workshop</div>
+    <h1>Fiches Récap</h1>
+    <p class="subtitle">Workshop complet — éditeurs interactifs intégrés</p>
+  </header>
+
+  <div class="hbox" style="border:1px solid rgba(56,189,248,.3);background:rgba(56,189,248,.06);margin-bottom:2rem;">
+    <strong>Comment lire les exemples</strong> — Chaque bloc ci‑dessous contient un éditeur Strudel. Clique dans la zone de code, puis&nbsp;: <strong>Ctrl+Enter</strong> (ou Cmd+Enter sur Mac) pour lancer la lecture, <strong>Ctrl+.</strong> (ou Cmd+. sur Mac) pour arrêter. Tu peux modifier le code et relancer avec Ctrl+Enter.
+  </div>
+
+  <div class="tabs">
+    <button class="tab-btn active" data-color="orange" onclick="showTab('sounds',this)">01 · First Sounds</button>
+    <button class="tab-btn" data-color="blue"   onclick="showTab('notes',this)">02 · First Notes</button>
+    <button class="tab-btn" data-color="green"  onclick="showTab('effects',this)">03 · First Effects</button>
+    <button class="tab-btn" data-color="pink"   onclick="showTab('patterns',this)">04 · Pattern Effects</button>
+    <button class="tab-btn" data-color="yellow" onclick="showTab('recap',this)">05 · Récap Global</button>
+  </div>
+
+  <!-- ================================================================
+       TAB 1 — FIRST SOUNDS
+  ================================================================ -->
+  <div id="tab-sounds" class="tab-content active">
+
+    <div class="hbox hbox-orange">
+      Strudel est basé sur des <strong>cycles</strong> : chaque pattern tourne en boucle. Par défaut un cycle dure <strong>2 secondes</strong> (30 cycles/min). Plus une séquence contient d'éléments, plus elle s'accélère pour tenir dans le cycle.
+    </div>
+
+    <div class="section-title st-orange">Mini-Notation</div>
+    <div class="card">
+      <div class="notation-row">
+        <div class="concept-name">Séquence</div>
+        <div class="badge badge-purple">espace</div>
+        <div class="code code-orange">sound("bd bd sd hh")</div>
+      </div>
+      <div class="notation-row">
+        <div class="concept-name">Numéro de sample</div>
+        <div class="badge badge-purple">:x</div>
+        <div class="code code-orange">sound("hh:0 hh:1 hh:2")</div>
+      </div>
+      <div class="notation-row">
+        <div class="concept-name">Silence / pause</div>
+        <div class="badge badge-purple">- ou ~</div>
+        <div class="code code-orange">sound("bd - sd -")</div>
+      </div>
+      <div class="notation-row">
+        <div class="concept-name">Alternance (1/cycle)</div>
+        <div class="badge badge-purple">&lt; &gt;</div>
+        <div class="code code-orange">sound("&lt;bd hh rim oh&gt;")</div>
+      </div>
+      <div class="notation-row">
+        <div class="concept-name">Sous-séquence</div>
+        <div class="badge badge-purple">[ ]</div>
+        <div class="code code-orange">sound("bd [hh hh] sd")</div>
+      </div>
+      <div class="notation-row">
+        <div class="concept-name">Sous-sous-séquence</div>
+        <div class="badge badge-purple">[[ ]]</div>
+        <div class="code code-orange">sound("bd [[rim rim] hh]")</div>
+      </div>
+      <div class="notation-row">
+        <div class="concept-name">Accélération</div>
+        <div class="badge badge-purple">*n</div>
+        <div class="code code-orange">sound("bd sd*2 cp*3")</div>
+      </div>
+      <div class="notation-row">
+        <div class="concept-name">Parallèle</div>
+        <div class="badge badge-purple">,</div>
+        <div class="code code-orange">sound("bd*2, hh*4, - cp")</div>
+      </div>
+    </div>
+
+    <div class="section-title st-orange">Fonctions</div>
+    <div class="card">
+      <div class="fn-row">
+        <div class="fn-name fn-name-orange">sound()</div>
+        <div><div class="fn-desc">Joue un son par son nom</div><div class="code code-orange">sound("bd sd [- bd] sd")</div></div>
+      </div>
+      <div class="fn-row">
+        <div class="fn-name fn-name-orange">n()</div>
+        <div><div class="fn-desc">Sélectionne le numéro de sample (plus lisible que :x)</div><div class="code code-orange">n("0 1 4 2").sound("jazz")</div></div>
+      </div>
+      <div class="fn-row">
+        <div class="fn-name fn-name-orange">.bank()</div>
+        <div><div class="fn-desc">Change la drum machine</div><div class="code code-orange">sound("bd sd").bank("RolandTR909")</div></div>
+      </div>
+      <div class="fn-row">
+        <div class="fn-name fn-name-orange">setcpm()</div>
+        <div><div class="fn-desc">Tempo en cycles par minute — 120bpm en 4/4 = 30 cpm</div><div class="code code-orange">setcpm(90/4); sound("bd hh sd hh")</div></div>
+      </div>
+    </div>
+
+    <div class="two-col">
+      <div>
+        <div class="section-title st-orange">Sons de batterie</div>
+        <div class="card">
+          <div class="drums-grid">
+            <div class="drum-item"><span class="drum-abbr">bd</span><span class="drum-name">bass drum</span></div>
+            <div class="drum-item"><span class="drum-abbr">sd</span><span class="drum-name">snare drum</span></div>
+            <div class="drum-item"><span class="drum-abbr">hh</span><span class="drum-name">hihat</span></div>
+            <div class="drum-item"><span class="drum-abbr">oh</span><span class="drum-name">open hihat</span></div>
+            <div class="drum-item"><span class="drum-abbr">rim</span><span class="drum-name">rimshot</span></div>
+            <div class="drum-item"><span class="drum-abbr">lt</span><span class="drum-name">low tom</span></div>
+            <div class="drum-item"><span class="drum-abbr">mt</span><span class="drum-name">middle tom</span></div>
+            <div class="drum-item"><span class="drum-abbr">ht</span><span class="drum-name">high tom</span></div>
+            <div class="drum-item"><span class="drum-abbr">rd</span><span class="drum-name">ride cymbal</span></div>
+            <div class="drum-item"><span class="drum-abbr">cr</span><span class="drum-name">crash cymbal</span></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="section-title st-orange">Raccourcis &amp; Drum Machines</div>
+        <div class="card">
+          <div class="tip" style="border-left:2px solid var(--accent1)">
+            <div class="tip-title">Jouer / Mettre à jour</div><div class="tip-body">Ctrl + Enter</div>
+          </div>
+          <div class="tip" style="border-left:2px solid var(--accent1)">
+            <div class="tip-title">Stopper</div><div class="tip-body">Ctrl + .</div>
+          </div>
+          <div style="margin-top:1rem;display:flex;flex-direction:column;gap:0.35rem;">
+            <div class="code code-muted">RolandTR909 · RolandTR808 · RolandTR707</div>
+            <div class="code code-muted">AkaiLinn · RhythmAce · ViscoSpaceDrum</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-title st-orange">Exemples interactifs</div>
+
+    <div class="editor-block editor-block-orange">
+      <div class="editor-label">Sous-séquences &amp; parallèle</div>
+      <strudel-repl><!--
+sound("bd [hh hh] sd [hh bd] bd - [hh sd] cp")
+--></strudel-repl>
+    </div>
+
+    <div class="editor-block editor-block-orange">
+      <div class="editor-label">Rock basique</div>
+      <strudel-repl><!--
+setcpm(100/4)
+sound("[bd sd]*2, hh*8").bank("RolandTR505")
+--></strudel-repl>
+    </div>
+
+    <div class="editor-block editor-block-orange">
+      <div class="editor-label">House classique</div>
+      <strudel-repl><!--
+sound("bd*4, [- cp]*2, [- hh]*4").bank("RolandTR909")
+--></strudel-repl>
+    </div>
+
+    <div class="editor-block editor-block-orange">
+      <div class="editor-label">Séquenceur 16 pas</div>
+      <strudel-repl><!--
+setcpm(90/4)
+sound(`
+[-  -  oh - ] [-  -  -  - ] [-  -  -  - ] [-  -  -  - ],
+[hh hh -  - ] [hh -  hh - ] [hh -  hh - ] [hh -  hh - ],
+[-  -  -  - ] [cp -  -  - ] [-  -  -  - ] [cp -  -  - ],
+[bd -  -  - ] [-  -  -  bd] [-  -  bd - ] [-  -  -  bd]
+`)
+--></strudel-repl>
+    </div>
+
+  </div><!-- /tab-sounds -->
+
+  <!-- ================================================================
+       TAB 2 — FIRST NOTES
+  ================================================================ -->
+  <div id="tab-notes" class="tab-content">
+
+    <div class="hbox hbox-blue">
+      Notes via <strong>note()</strong> : chiffres MIDI (60 = C4) ou lettres a à g. Dièse avec <strong>#</strong>, bémol avec <strong>b</strong>. Octave avec un chiffre après la lettre (ex: c3). La fonction <strong>n() + .scale()</strong> permet de travailler par degrés — tous les numéros sonnent juste.
+    </div>
+
+    <div class="section-title st-blue">Mini-Notation — nouveautés</div>
+    <div class="card">
+      <div class="notation-row">
+        <div class="concept-name">Ralentir</div>
+        <div class="badge badge-blue">/n</div>
+        <div class="code code-blue">note("[c a f e]/2")</div>
+      </div>
+      <div class="notation-row">
+        <div class="concept-name">Alternance (rappel)</div>
+        <div class="badge badge-blue">&lt; &gt;</div>
+        <div class="code code-blue">note("c a f &lt;e g&gt;")</div>
+      </div>
+      <div class="notation-row">
+        <div class="concept-name">Allonger (durée relative)</div>
+        <div class="badge badge-blue">@n</div>
+        <div class="code code-blue">note("c@3 e") — c dure 3x plus</div>
+      </div>
+      <div class="notation-row">
+        <div class="concept-name">Répliquer</div>
+        <div class="badge badge-blue">!n</div>
+        <div class="code code-blue">note("c!3 e") — c répété 3 fois</div>
+      </div>
+    </div>
+
+    <div class="section-title st-blue">Fonctions</div>
+    <div class="card">
+      <div class="fn-row">
+        <div class="fn-name fn-name-blue">note()</div>
+        <div><div class="fn-desc">Joue une note en MIDI ou lettre</div><div class="code code-blue">note("b g e c").sound("piano")</div></div>
+      </div>
+      <div class="fn-row">
+        <div class="fn-name fn-name-blue">.scale()</div>
+        <div><div class="fn-desc">Interprète n() comme un degré de gamme</div><div class="code code-blue">n("0 2 4 6").scale("C:minor").sound("piano")</div></div>
+      </div>
+      <div class="fn-row">
+        <div class="fn-name fn-name-blue">$:</div>
+        <div><div class="fn-desc">Joue plusieurs patterns en parallèle. <span style="color:var(--accent4)">_$:</span> pour muter un pattern.</div><div class="code code-blue">$: sound("bd*4") &nbsp; $: note("c e g")</div></div>
+      </div>
+    </div>
+
+    <div class="two-col">
+      <div>
+        <div class="section-title st-blue">Gammes</div>
+        <div class="card">
+          <div class="scales-grid">
+            <div class="scale-tag">C:major</div>
+            <div class="scale-tag">A:minor</div>
+            <div class="scale-tag">D:dorian</div>
+            <div class="scale-tag">G:mixolydian</div>
+            <div class="scale-tag">A:minor:pentatonic</div>
+            <div class="scale-tag">F:major:pentatonic</div>
+          </div>
+          <div class="fn-desc" style="margin-top:.75rem;">Format : <code style="font-family:Space Mono,monospace;font-size:.72rem;color:var(--accent4)">Note:gamme</code> — peut inclure une octave (A2:minor). La gamme peut être un pattern :</div>
+          <div class="code code-blue" style="margin-top:.35rem;">n("0 2 4").scale("&lt;C:major D:mixolydian&gt;/4")</div>
+        </div>
+      </div>
+      <div>
+        <div class="section-title st-blue">@ vs ! vs *</div>
+        <div class="card">
+          <div class="tip" style="border-left:2px solid var(--accent4)">
+            <div class="tip-title">@n — Allonger</div>
+            <div class="tip-body">note("c@3 e") → c occupe 3 unités, e occupe 1. Durée totale inchangée.</div>
+          </div>
+          <div class="tip" style="border-left:2px solid var(--accent4)">
+            <div class="tip-title">!n — Répliquer</div>
+            <div class="tip-body">note("c!3 e") → équivalent à "c c c e".</div>
+          </div>
+          <div class="tip" style="border-left:2px solid var(--accent4)">
+            <div class="tip-title">*n — Accélérer</div>
+            <div class="tip-body">note("c*3 e") → c répété 3x en sous-séquence compressée.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-title st-blue">Exemples interactifs</div>
+
+    <div class="editor-block editor-block-blue">
+      <div class="editor-label">Notes par lettres + .sound()</div>
+      <strudel-repl><!--
+note("c e g b").sound("piano")
+--></strudel-repl>
+    </div>
+
+    <div class="editor-block editor-block-blue">
+      <div class="editor-label">Gamme — explorer les degrés</div>
+      <strudel-repl><!--
+setcpm(60)
+n("0 2 4 <[6,8] [7,9]>")
+  .scale("C:minor").sound("piano")
+--></strudel-repl>
+    </div>
+
+    <div class="editor-block editor-block-blue">
+      <div class="editor-label">Shuffle avec @ (groove blues/jazz)</div>
+      <strudel-repl><!--
+setcpm(60)
+n("<[4@2 4] [5@2 5] [6@2 6] [5@2 5]>*2")
+  .scale("<C2:mixolydian F2:mixolydian>/4")
+  .sound("gm_acoustic_bass")
+--></strudel-repl>
+    </div>
+
+    <div class="editor-block editor-block-blue">
+      <div class="editor-label">Multi-patterns $: — Basse + Mélodie + Batterie</div>
+      <strudel-repl><!--
+$: note("<[c2 c3]*4 [bb1 bb2]*4 [f2 f3]*4 [eb2 eb3]*4>")
+   .sound("gm_synth_bass_1").lpf(800)
+
+$: n(`<
+  [~ 0] 2 [0 2] [~ 2]
+  [~ 0] 1 [0 1] [~ 1]
+  [~ 0] 3 [0 3] [~ 3]
+  [~ 0] 2 [0 2] [~ 2]
+>*4`).scale("C4:minor").sound("gm_synth_strings_1")
+
+$: sound("bd*4, [~ <sd cp>]*2, [~ hh]*4")
+   .bank("RolandTR909")
+--></strudel-repl>
+    </div>
+
+  </div><!-- /tab-notes -->
+
+  <!-- ================================================================
+       TAB 3 — FIRST EFFECTS
+  ================================================================ -->
+  <div id="tab-effects" class="tab-content">
+
+    <div class="hbox hbox-green">
+      Les effets s'appliquent en chaîne avec <strong>.nomEffet(valeur)</strong>. La valeur peut être un nombre fixe, un pattern mini-notation, ou un <strong>signal</strong> (sine, saw, rand…). Les signaux oscillent entre 0 et 1 par défaut — utiliser <strong>.range(min, max)</strong> pour ajuster.
+    </div>
+
+    <div class="section-title st-green">Effets audio</div>
+    <div class="card">
+      <div class="fn-row">
+        <div class="fn-name fn-name-green">.lpf()</div>
+        <div><div class="fn-desc">Low-pass filter — filtre les aigus. Bas = sourd (porte fermée), haut = brillant.</div><div class="code code-green">note("c2 c3").sound("sawtooth").lpf("200 1000 200 1000")</div></div>
+      </div>
+      <div class="fn-row">
+        <div class="fn-name fn-name-green">.vowel()</div>
+        <div><div class="fn-desc">Formant vocal — simule des voyelles. Valeurs : a e i o u</div><div class="code code-green">note("c3 eb3 g3").sound("sawtooth").vowel("&lt;a e i o&gt;")</div></div>
+      </div>
+      <div class="fn-row">
+        <div class="fn-name fn-name-green">.gain()</div>
+        <div><div class="fn-desc">Volume entre 0 et 1. Patternable pour créer de la dynamique.</div><div class="code code-green">sound("hh*16").gain("[.25 1]*4")</div></div>
+      </div>
+      <div class="fn-row">
+        <div class="fn-name fn-name-green">.delay()</div>
+        <div><div class="fn-desc">Délai. Format .delay("vol:temps:feedback") — chaque paramètre optionnel.</div><div class="code code-green">sound("bd rim").delay(".5:.125:.8")</div></div>
+      </div>
+      <div class="fn-row">
+        <div class="fn-name fn-name-green">.room()</div>
+        <div><div class="fn-desc">Réverbération. Plus la valeur est grande, plus la réverb est longue.</div><div class="code code-green">sound("bd rim").room(2)</div></div>
+      </div>
+      <div class="fn-row">
+        <div class="fn-name fn-name-green">.pan()</div>
+        <div><div class="fn-desc">Panoramique stéréo. 0 = gauche, 1 = droite, 0.5 = centre.</div><div class="code code-green">sound("bd rim cp oh").pan("0 0.3 .6 1")</div></div>
+      </div>
+      <div class="fn-row">
+        <div class="fn-name fn-name-green">.speed()</div>
+        <div><div class="fn-desc">Vitesse de lecture du sample. Négatif = lecture à l'envers.</div><div class="code code-green">sound("bd rim").speed("&lt;1 2 -1 -2&gt;")</div></div>
+      </div>
+      <div class="fn-row">
+        <div class="fn-name fn-name-green">.fast() .slow()</div>
+        <div><div class="fn-desc">Accélère ou ralentit le pattern entier hors mini-notation.</div><div class="code code-green">sound("bd*4, ~ rim ~ cp").slow(2)</div></div>
+      </div>
+    </div>
+
+    <div class="section-title st-green">Enveloppe ADSR</div>
+    <div class="two-col">
+      <div class="card">
+        <div class="adsr-grid">
+          <div class="adsr-item">
+            <div class="adsr-key">attack</div>
+            <div class="adsr-val">Temps pour monter au volume max</div>
+          </div>
+          <div class="adsr-item">
+            <div class="adsr-key">decay</div>
+            <div class="adsr-val">Temps pour descendre au sustain</div>
+          </div>
+          <div class="adsr-item">
+            <div class="adsr-key">sustain</div>
+            <div class="adsr-val">Niveau tenu pendant la note (0 à 1)</div>
+          </div>
+          <div class="adsr-item">
+            <div class="adsr-key">release</div>
+            <div class="adsr-val">Temps pour s'éteindre après la note</div>
+          </div>
+        </div>
+        <div class="code code-green" style="margin-top:.75rem;">
+          .adsr(".1:.1:.25:.2") &nbsp; // attack:decay:sustain:release
+        </div>
+      </div>
+      <div class="card">
+        <div class="fn-desc" style="margin-bottom:.5rem;">Ou chaque paramètre séparément :</div>
+        <div style="display:flex;flex-direction:column;gap:.35rem;">
+          <div class="code code-green">.attack(.1)</div>
+          <div class="code code-green">.decay(.1)</div>
+          <div class="code code-green">.sustain(.25)</div>
+          <div class="code code-green">.release(.2)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-title st-green">Signaux de modulation</div>
+    <div class="card">
+      <div class="fn-desc" style="margin-bottom:.75rem;">Les signaux remplacent une valeur fixe par une oscillation continue. Ils s'utilisent directement comme valeur d'un effet.</div>
+      <div class="scales-grid" style="margin-bottom:.75rem;">
+        <div class="signal-tag">sine</div>
+        <div class="signal-tag">saw</div>
+        <div class="signal-tag">square</div>
+        <div class="signal-tag">tri</div>
+        <div class="signal-tag">rand</div>
+        <div class="signal-tag">perlin</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:.4rem;">
+        <div class="code code-green">sound("hh*16").gain(sine) &nbsp; // volume ondule avec sinus</div>
+        <div class="code code-green">sound("hh*16").lpf(saw.range(500, 2000)) &nbsp; // plage personnalisée</div>
+        <div class="code code-green">note("c2 bb2 f2").sound("sawtooth").lpf(sine.range(100,2000).slow(4))</div>
+      </div>
+    </div>
+
+    <div class="section-title st-green">Exemples interactifs</div>
+
+    <div class="editor-block editor-block-green">
+      <div class="editor-label">LPF en pattern</div>
+      <strudel-repl><!--
+note("<[c2 c3]*4 [bb1 bb2]*4 [f2 f3]*4 [eb2 eb3]*4>")
+  .sound("sawtooth").lpf("200 1000 200 1000")
+--></strudel-repl>
+    </div>
+
+    <div class="editor-block editor-block-green">
+      <div class="editor-label">Gain + dynamique rythmique</div>
+      <strudel-repl><!--
+$: sound("hh*16").gain("[.25 1]*4")
+$: sound("bd*4,[~ sd:1]*2")
+--></strudel-repl>
+    </div>
+
+    <div class="editor-block editor-block-green">
+      <div class="editor-label">Enveloppe ADSR</div>
+      <strudel-repl><!--
+note("c3 bb2 f3 eb3")
+  .sound("sawtooth").lpf(600)
+  .attack(.1).decay(.1).sustain(.25).release(.2)
+--></strudel-repl>
+    </div>
+
+    <div class="editor-block editor-block-green">
+      <div class="editor-label">Signal — gain avec sinus</div>
+      <strudel-repl><!--
+sound("hh*16").gain(sine)
+--></strudel-repl>
+    </div>
+
+    <div class="editor-block editor-block-green">
+      <div class="editor-label">Signal — lpf avec saw modulé lentement</div>
+      <strudel-repl><!--
+note("<[c2 c3]*4 [bb1 bb2]*4 [f2 f3]*4 [eb2 eb3]*4>")
+  .sound("sawtooth")
+  .lpf(sine.range(100, 2000).slow(4))
+--></strudel-repl>
+    </div>
+
+    <div class="editor-block editor-block-green">
+      <div class="editor-label">Petit dub complet</div>
+      <strudel-repl><!--
+$: note("[~ [<[d3,a3,f4]!2 [d3,bb3,g4]!2> ~]]*2")
+   .sound("gm_electric_guitar_muted").delay(.5)
+
+$: sound("bd rim").bank("RolandTR707").delay(".5")
+
+$: n("<4 [3@3 4] [<2 0> ~@16] ~>")
+   .scale("D4:minor").sound("gm_accordion:2")
+   .room(2).gain(.4)
+
+$: n("[0 [~ 0] 4 [3 2] [0 ~] [0 ~] <0 2> ~]/2")
+   .scale("D2:minor")
+   .sound("sawtooth,triangle").lpf(800)
+--></strudel-repl>
+    </div>
+
+  </div><!-- /tab-effects -->
+
+  <!-- ================================================================
+       TAB 4 — PATTERN EFFECTS
+  ================================================================ -->
+  <div id="tab-patterns" class="tab-content">
+
+    <div class="hbox hbox-pink">
+      Les Pattern Effects sont propres à Tidal/Strudel — ils manipulent la <strong>structure temporelle</strong> des patterns eux-mêmes, pas seulement le son. Ce sont des outils puissants pour générer de la complexité à partir de peu de code.
+    </div>
+
+    <div class="section-title st-pink">Fonctions de pattern</div>
+    <div class="card">
+      <div class="fn-row">
+        <div class="fn-name fn-name-pink">.rev()</div>
+        <div><div class="fn-desc">Inverse l'ordre du pattern.</div><div class="code code-pink">n("0 1 [4 3] 2").sound("jazz").rev()</div></div>
+      </div>
+      <div class="fn-row">
+        <div class="fn-name fn-name-pink">.jux(fn)</div>
+        <div><div class="fn-desc">Duplique le pattern : gauche = original, droite = version modifiée par fn.</div><div class="code code-pink">n("0 1 [4 3] 2").sound("jazz").jux(rev)</div></div>
+      </div>
+      <div class="fn-row">
+        <div class="fn-name fn-name-pink">.add()</div>
+        <div><div class="fn-desc">Ajoute des valeurs aux notes/degrés. Peut être patterné. Fonctionne aussi sur les chaînes mini-notation.</div><div class="code code-pink">n("0 2 4 6".add("&lt;0 1 2 1&gt;")).scale("C:minor")</div></div>
+      </div>
+      <div class="fn-row">
+        <div class="fn-name fn-name-pink">.ply(n)</div>
+        <div><div class="fn-desc">Répète chaque événement n fois dans son slot. Patternable.</div><div class="code code-pink">sound("hh hh, bd rim").ply("&lt;1 2 1 3&gt;")</div></div>
+      </div>
+      <div class="fn-row">
+        <div class="fn-name fn-name-pink">.off(t, fn)</div>
+        <div><div class="fn-desc">Copie le pattern, le décale de t cycles, applique fn à la copie. Empilable.</div><div class="code code-pink">n("0 [4 &lt;3 2&gt;]").scale("C5:minor").off(1/16, x=>x.add(4))</div></div>
+      </div>
+      <div class="fn-row">
+        <div class="fn-name fn-name-pink">.slow(n)</div>
+        <div><div class="fn-desc">Ralentit le pattern d'un facteur n. Peut être patterné lui-même.</div><div class="code code-pink">note("c2, eb3 g3").sound("piano").slow("0.5,1,1.5")</div></div>
+      </div>
+      <div class="fn-row">
+        <div class="fn-name fn-name-pink">.fast(n)</div>
+        <div><div class="fn-desc">Accélère le pattern d'un facteur n.</div><div class="code code-pink">sound("bd sd [~ bd] sd").fast("&lt;1 [2 4]&gt;")</div></div>
+      </div>
+    </div>
+
+    <div class="section-title st-pink">Exemples interactifs</div>
+
+    <div class="editor-block editor-block-pink">
+      <div class="editor-label">.rev() — pattern inversé</div>
+      <strudel-repl><!--
+n("0 1 [4 3] 2 0 2 [~ 3] 4").sound("jazz").rev()
+--></strudel-repl>
+    </div>
+
+    <div class="editor-block editor-block-pink">
+      <div class="editor-label">.jux(rev) — gauche original / droite inversé</div>
+      <strudel-repl><!--
+n("0 1 [4 3] 2 0 2 [~ 3] 4").sound("jazz").jux(rev)
+--></strudel-repl>
+    </div>
+
+    <div class="editor-block editor-block-pink">
+      <div class="editor-label">.slow() en pattern — polytempos</div>
+      <strudel-repl><!--
+note("c2, eb3 g3 [bb3 c4]").sound("piano").slow("0.5,1,1.5")
+--></strudel-repl>
+    </div>
+
+    <div class="editor-block editor-block-pink">
+      <div class="editor-label">.add() — décalage harmonique</div>
+      <strudel-repl><!--
+setcpm(60)
+note("c2 [eb3,g3] ".add("<0 <1 -1>>").add("0,7"))
+  .adsr("[.1 0]:.2:[1 0]")
+  .sound("gm_acoustic_bass").room(.5)
+--></strudel-repl>
+    </div>
+
+    <div class="editor-block editor-block-pink">
+      <div class="editor-label">.ply() — chaque événement répété n fois</div>
+      <strudel-repl><!--
+sound("hh hh, bd rim [~ cp] rim").bank("RolandTR707").ply(2)
+--></strudel-repl>
+    </div>
+
+    <div class="editor-block editor-block-pink">
+      <div class="editor-label">.off() — copie décalée et modifiée</div>
+      <strudel-repl><!--
+n("0 [4 <3 2>] <2 3> [~ 1]"
+  .off(1/16, x=>x.add(4))
+).scale("<C5:minor Db5:mixolydian>/2")
+  .s("triangle").room(.5).dec(.1)
+--></strudel-repl>
+    </div>
+
+    <div class="editor-block editor-block-pink">
+      <div class="editor-label">Stack complet — Xylophone + Basse + Jazz</div>
+      <strudel-repl><!--
+$: n("0 [2 4] <3 5> [~ <4 1>]".add("<0 [0,2,4]>"))
+   .scale("C5:minor").sound("gm_xylophone")
+   .room(.4).delay(.125).release(.5)
+
+$: note("c2 [eb3,g3]".add("<0 <1 -1>>"))
+   .adsr("[.1 0]:.2:[1 0]")
+   .sound("gm_acoustic_bass").room(.5)
+
+$: n("0 1 [2 3] 2").sound("jazz").jux(rev)
+--></strudel-repl>
+    </div>
+
+  </div><!-- /tab-patterns -->
+
+  <!-- ================================================================
+       TAB 5 — RECAP GLOBAL
+  ================================================================ -->
+  <div id="tab-recap" class="tab-content">
+
+    <div class="hbox" style="border:1px solid rgba(251,191,36,.3);background:rgba(251,191,36,.04);">
+      Synthèse complète du workshop. Toutes les notions en un seul endroit pour référence rapide.
+    </div>
+
+    <div class="section-title st-yellow">Mini-Notation — toute la syntaxe</div>
+    <div class="card" style="padding:0;overflow:hidden;">
+      <table class="recap-table">
+        <thead><tr><th>Concept</th><th>Syntaxe</th><th>Exemple</th></tr></thead>
+        <tbody>
+          <tr><td style="color:var(--accent1)">Séquence</td><td>espace</td><td>sound("bd bd sd hh")</td></tr>
+          <tr><td style="color:var(--accent1)">Numéro sample</td><td>:x</td><td>sound("hh:0 hh:1 hh:2")</td></tr>
+          <tr><td style="color:var(--accent1)">Silence</td><td>- ou ~</td><td>sound("metal ~ jazz jazz:1")</td></tr>
+          <tr><td style="color:var(--accent1)">Sous-séquence</td><td>[ ]</td><td>sound("bd wind [metal jazz] hh")</td></tr>
+          <tr><td style="color:var(--accent1)">Sous-sous-séquence</td><td>[[ ]]</td><td>sound("bd [metal [jazz sd]]")</td></tr>
+          <tr><td style="color:var(--accent1)">Accélération</td><td>*n</td><td>sound("bd sd*2 cp*3")</td></tr>
+          <tr><td style="color:var(--accent1)">Parallèle</td><td>,</td><td>sound("bd*2, hh*2 [hh oh]")</td></tr>
+          <tr><td style="color:var(--accent4)">Ralentir</td><td>/n</td><td>note("[c a f e]/2")</td></tr>
+          <tr><td style="color:var(--accent4)">Alternance</td><td>&lt; &gt;</td><td>note("c &lt;e g&gt;")</td></tr>
+          <tr><td style="color:var(--accent4)">Allonger</td><td>@n</td><td>note("c@3 e")</td></tr>
+          <tr><td style="color:var(--accent4)">Répliquer</td><td>!n</td><td>note("c!3 e")</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="two-col">
+      <div>
+        <div class="section-title st-yellow">Sons</div>
+        <div class="card" style="padding:0;overflow:hidden;">
+          <table class="recap-table">
+            <thead><tr><th>Fonction</th><th>Rôle</th></tr></thead>
+            <tbody>
+              <tr><td style="color:var(--accent1)">sound()</td><td>Joue un son</td></tr>
+              <tr><td style="color:var(--accent1)">.bank()</td><td>Drum machine</td></tr>
+              <tr><td style="color:var(--accent1)">n()</td><td>Numéro de sample</td></tr>
+              <tr><td style="color:var(--accent1)">setcpm()</td><td>Tempo cycles/min</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="section-title st-yellow">Notes</div>
+        <div class="card" style="padding:0;overflow:hidden;">
+          <table class="recap-table">
+            <thead><tr><th>Fonction</th><th>Rôle</th></tr></thead>
+            <tbody>
+              <tr><td style="color:var(--accent4)">note()</td><td>MIDI ou lettre</td></tr>
+              <tr><td style="color:var(--accent4)">n() + .scale()</td><td>Degré de gamme</td></tr>
+              <tr><td style="color:var(--accent4)">$:</td><td>Patterns parallèles</td></tr>
+              <tr><td style="color:var(--accent4)">_$:</td><td>Muter un pattern</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div>
+        <div class="section-title st-yellow">Effets audio</div>
+        <div class="card" style="padding:0;overflow:hidden;">
+          <table class="recap-table">
+            <thead><tr><th>Effet</th><th>Rôle</th></tr></thead>
+            <tbody>
+              <tr><td style="color:var(--accent3)">.lpf()</td><td>Filtre passe-bas</td></tr>
+              <tr><td style="color:var(--accent3)">.vowel()</td><td>Formant vocal</td></tr>
+              <tr><td style="color:var(--accent3)">.gain()</td><td>Volume (0 à 1)</td></tr>
+              <tr><td style="color:var(--accent3)">.delay()</td><td>Délai (vol:t:fb)</td></tr>
+              <tr><td style="color:var(--accent3)">.room()</td><td>Réverb</td></tr>
+              <tr><td style="color:var(--accent3)">.pan()</td><td>Panoramique 0–1</td></tr>
+              <tr><td style="color:var(--accent3)">.speed()</td><td>Vitesse sample</td></tr>
+              <tr><td style="color:var(--accent3)">.adsr()</td><td>Enveloppe</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-title st-yellow">Pattern Effects</div>
+    <div class="card" style="padding:0;overflow:hidden;">
+      <table class="recap-table">
+        <thead><tr><th>Fonction</th><th>Description</th><th>Exemple</th></tr></thead>
+        <tbody>
+          <tr><td style="color:var(--accent6)">setcpm</td><td>Tempo cycles/min</td><td>setcpm(45); sound("bd sd [~ bd] sd")</td></tr>
+          <tr><td style="color:var(--accent6)">.fast(n)</td><td>Accélère le pattern</td><td>sound("bd sd [~ bd] sd").fast(2)</td></tr>
+          <tr><td style="color:var(--accent6)">.slow(n)</td><td>Ralentit le pattern</td><td>sound("bd sd [~ bd] sd").slow(2)</td></tr>
+          <tr><td style="color:var(--accent6)">.rev()</td><td>Inverse le pattern</td><td>n("0 2 4 6").scale("C:minor").rev()</td></tr>
+          <tr><td style="color:var(--accent6)">.jux(fn)</td><td>L = original / R = modifié</td><td>n("0 2 4 6").scale("C:minor").jux(rev)</td></tr>
+          <tr><td style="color:var(--accent6)">.add(n)</td><td>Ajoute aux notes/degrés</td><td>n("0 2 4".add("&lt;0 1 2 1&gt;")).scale("C:minor")</td></tr>
+          <tr><td style="color:var(--accent6)">.ply(n)</td><td>Répète chaque event n fois</td><td>s("bd sd").ply("&lt;1 2 3&gt;")</td></tr>
+          <tr><td style="color:var(--accent6)">.off(t, fn)</td><td>Copie décalée et modifiée</td><td>s("bd sd, hh*4").off(1/8, x=>x.speed(2))</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section-title st-yellow">Signaux</div>
+    <div class="card">
+      <div class="fn-desc" style="margin-bottom:.75rem;">Signaux de base (oscillent entre 0 et 1) :</div>
+      <div class="scales-grid" style="margin-bottom:.75rem;">
+        <div class="signal-tag">sine</div>
+        <div class="signal-tag">saw</div>
+        <div class="signal-tag">square</div>
+        <div class="signal-tag">tri</div>
+        <div class="signal-tag">rand</div>
+        <div class="signal-tag">perlin</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:.35rem;">
+        <div class="code code-green">signal.range(min, max) &nbsp;// ajuste la plage</div>
+        <div class="code code-green">signal.slow(n) &nbsp;// ralentit la modulation</div>
+        <div class="code code-green">sound("hh*16").lpf(sine.range(200, 4000).slow(4))</div>
+      </div>
+    </div>
+
+    <div class="section-title st-yellow">Bac à sable — tout combiner</div>
+    <div class="editor-block editor-block-green">
+      <div class="editor-label">Zone libre — modifie et expérimente (stack workshop)</div>
+      <strudel-repl><!--
+$: n("0 [2 4] <3 5> [~ <4 1>]".add("<0 [0,2,4]>"))
+   .scale("C5:minor").sound("gm_xylophone")
+   .room(.4).delay(.125)
+
+$: note("c2 [eb3,g3]".add("<0 <1 -1>>"))
+   .adsr("[.1 0]:.2:[1 0]")
+   .sound("gm_acoustic_bass").room(.5)
+
+$: n("0 1 [2 3] 2").sound("jazz").jux(rev)
+--></strudel-repl>
+    </div>
+
+  </div><!-- /tab-recap -->
+
+  <footer>strudel.cc — fiches recap · first-sounds · first-notes · first-effects · pattern-effects</footer>
+
+</div>
+
+<script src="https://unpkg.com/@strudel/embed@latest"></script>
+<script>
+  function showTab(id, btn) {
+    document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+    document.getElementById('tab-' + id).classList.add('active');
+    btn.classList.add('active');
+  }
+</script>
+</body>
+</html>
