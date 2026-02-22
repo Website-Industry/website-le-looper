@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Le Looper logo">
+  <defs>
+    <!-- Gradient du disque -->
+    <radialGradient id="discGlow" cx="35%" cy="25%" r="85%">
+      <stop offset="0%" stop-color="#ff4fb3"/>
+      <stop offset="45%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#22d3ee"/>
+    </radialGradient>
+
+    <!-- Petite ombre douce -->
+    <filter id="softShadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#000" flood-opacity="0.18"/>
+    </filter>
+
+  </defs>
+
+  <!-- Disque avec dégradé -->
+  <circle cx="128" cy="128" r="78" fill="url(#discGlow)" filter="url(#softShadow)"/>
+
+  <!-- Faders (blanc) -->
+  <g fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Rails verticaux (barres fines) -->
+    <path d="M 92 78 V 178" stroke-width="6"/>
+    <path d="M 128 68 V 188" stroke-width="6"/>
+    <path d="M 164 88 V 168" stroke-width="6"/>
+
+    <!-- Knobs (ronds/poignées des faders) -->
+    <circle cx="92" cy="125" r="10" fill="#ffffff"/>
+    <circle cx="128" cy="115" r="10" fill="#ffffff"/>
+    <circle cx="164" cy="135" r="10" fill="#ffffff"/>
+  </g>
+
+  <!-- Flèche circulaire autour du disque (0° à 270° sens horaire) -->
+  <path d="M 206 128 A 78 78 0 1 1 128 50" fill="none" stroke="#8b5cf6" stroke-width="14" stroke-linecap="round"/>
+  
+  <!-- Pointe de la flèche (triangle orienté vers la droite, bord droit au bout du trait) -->
+  <polygon points="164 50, 128 26, 128 74" fill="#8b5cf6"/>
+</svg>
+
