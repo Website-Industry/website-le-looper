@@ -1,0 +1,41 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+  title="Ressources - Le Looper"
+  description="Ressources du Looper - Documentation, fiches récap et supports pour la création musicale numérique et le live coding."
+  currentPage="ressources"
+  isHome={false}
+>
+  <Nav slot="nav" currentPage="ressources" isHome={false} />
+
+  <section class="hero hero-small" aria-labelledby="ressources-title">
+    <div class="hero-content">
+      <h1 id="ressources-title" class="hero-title">Ressources</h1>
+      <p class="hero-subtitle">Documentation, fiches récap et supports pour la création musicale numérique</p>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="liste-ressources-title">
+    <div class="container">
+      <h2 id="liste-ressources-title" class="section-title">À consulter</h2>
+      <div class="content-card">
+        <p class="lead">Une sélection de ressources utiles pour explorer les outils et pratiques abordés au Looper. Cette liste s'enrichira au fil du temps.</p>
+        <div class="events-list">
+          <div class="event-card">
+            <h3>Strudel — Fiches Récap</h3>
+            <p>Workshop complet Strudel.cc avec fiches récap (First Sounds, First Notes, First Effects, Pattern Effects) et éditeurs interactifs intégrés pour tester le code en direct.</p>
+            <div class="event-links">
+              <a href="/strudel-recap.html" class="event-info-link">Consulter la ressource →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" currentPage="ressources" />
+</Layout>

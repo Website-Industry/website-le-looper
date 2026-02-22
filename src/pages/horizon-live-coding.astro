@@ -1,0 +1,173 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+  title="Horizon Live Coding - Le Looper"
+  description="Horizon Live Coding - Espace de pratique horizontal dédié au live coding au Looper. Expérimentation, apprentissage collectif, sans transmission descendante."
+  currentPage="horizon"
+  isHome={false}
+>
+  <Nav slot="nav" currentPage="horizon" isHome={false} />
+
+  <section class="hero hero-small" aria-labelledby="horizon-title">
+    <div class="hero-content">
+      <h1 id="horizon-title" class="hero-title">Horizon Live Coding</h1>
+      <p class="hero-subtitle">Espace de pratique horizontal dédié au live coding</p>
+      <a href="/#agenda" class="btn btn-secondary">Voir l'agenda</a>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="intention-title">
+    <div class="container">
+      <h2 id="intention-title" class="section-title">Intention</h2>
+      <div class="content-card">
+        <p class="lead"><strong>Horizon Live Coding</strong> est un espace de pratique horizontal dédié au live coding : la création de musique à l'aide de code écrit et modifié en temps réel.</p>
+        <p>L'objectif est de proposer un cadre régulier pour expérimenter, apprendre les un·es des autres et faire émerger une pratique collective, sans transmission descendante ni posture de formateur.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" aria-labelledby="principe-title">
+    <div class="container">
+      <h2 id="principe-title" class="section-title">Principe</h2>
+      <div class="content-card">
+        <ul class="horizon-list">
+          <li><strong>Pas de cours, pas de démonstration imposée</strong></li>
+          <li><strong>Chacun·e pratique à son rythme</strong>, sur son propre ordinateur</li>
+          <li><strong>Les savoirs circulent librement</strong> : échanges spontanés, entraide, observation, discussion</li>
+          <li><strong>Le groupe décide collectivement</strong> des directions explorées</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="format-title">
+    <div class="container">
+      <h2 id="format-title" class="section-title">Format</h2>
+      <div class="grid-2">
+        <div class="content-card">
+          <h3>Durée & Fréquence</h3>
+          <ul class="horizon-list">
+            <li><strong>Durée</strong> : 2 à 3 heures</li>
+            <li><strong>Fréquence</strong> : mensuelle</li>
+          </ul>
+        </div>
+        <div class="content-card">
+          <h3>Configuration</h3>
+          <ul class="horizon-list">
+            <li>1 personne = 1 ordinateur + casque</li>
+            <li>Pratique principalement silencieuse (au casque)</li>
+            <li>Temps informels d'échange intégrés naturellement</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" aria-labelledby="contenu-title">
+    <div class="container">
+      <h2 id="contenu-title" class="section-title">Contenu possible</h2>
+      <div class="content-card">
+        <p class="note">Selon les envies du groupe :</p>
+        <div class="horizon-grid">
+          <div class="horizon-item">
+            <span class="horizon-icon" aria-hidden="true">🔍</span>
+            <p>Découverte d'un langage ou outil de live coding</p>
+          </div>
+          <div class="horizon-item">
+            <span class="horizon-icon" aria-hidden="true">⚙️</span>
+            <p>Exploration d'une technique spécifique</p>
+          </div>
+          <div class="horizon-item">
+            <span class="horizon-icon" aria-hidden="true">🎨</span>
+            <p>Travail sur une esthétique ou un style</p>
+          </div>
+          <div class="horizon-item">
+            <span class="horizon-icon" aria-hidden="true">🔄</span>
+            <p>Tests de workflows, setups, performances</p>
+          </div>
+          <div class="horizon-item">
+            <span class="horizon-icon" aria-hidden="true">🎤</span>
+            <p>Préparation ou débrief de lives / performances</p>
+          </div>
+        </div>
+        <p class="note">Certaines sessions sont thématiques (par exemple autour d'un outil comme Strudel.cc), d'autres restent plus libres.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="strudel-title">
+    <div class="container">
+      <h2 id="strudel-title" class="section-title">Découverte de Strudel.cc</h2>
+      <div class="content-card">
+        <p class="lead">Une thématique dédiée à la découverte de <a href="https://strudel.cc" target="_blank" rel="noopener noreferrer">Strudel.cc</a>, un environnement de live coding musical accessible directement depuis le navigateur.</p>
+        <div class="grid-2">
+          <div>
+            <h3>Ce qu'on fait pendant ces sessions</h3>
+            <ul class="horizon-list">
+              <li>Chacun·e vient avec <strong>son propre ordinateur</strong> et pratique à son rythme</li>
+              <li>On <strong>découvre l'outil ensemble</strong> en suivant le tutoriel, étape par étape</li>
+              <li>On <strong>partage des astuces</strong>, on se pose des questions, on échange sur nos façons de faire</li>
+              <li>On prend le temps de <strong>relier la pratique à la culture du live coding</strong> (références, scènes, artistes…)</li>
+              <li>Pendant cette thématique, on reste <strong>focalisé·es sur Strudel.cc</strong> pour bien s'approprier l'outil</li>
+            </ul>
+            <p>Ce focus n'empêche pas, lors d'autres sessions Horizon Live Coding, d'explorer <strong>d'autres outils, techniques ou esthétiques</strong>.</p>
+          </div>
+          <div>
+            <h3>Infos pratiques</h3>
+            <p>Les sessions "Découverte de Strudel.cc" ont lieu régulièrement dans le cadre d'Horizon Live Coding, en général <strong>un dimanche après-midi par mois (14h – 16h)</strong>, à Toulouse.</p>
+            <p>Les prochaines dates prévues pour cette thématique sont annoncées dans la section <a href="/#agenda" class="format-link">Agenda</a> du site.</p>
+            <div class="note">
+              <p><strong>Lieu :</strong> les sessions ont notamment lieu à l'<a href="https://eurekafe.fr/" target="_blank" rel="noopener noreferrer">Eurêkafé</a>, un slowcafé toulousain.</p>
+              <p>L'Eurêkafé fonctionne au temps passé : on paye <strong>2 € / 30 min</strong>, soit environ <strong>8 €</strong> pour une session de 2 heures, avec les consommations incluses. À vérifier à chaque événement, les tarifs pouvant évoluer.</p>
+              <p>En résumé : un moment convivial pour découvrir le live coding, le tout dans un café où l'on peut s'installer, coder, discuter et grignoter.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="public-title">
+    <div class="container">
+      <h2 id="public-title" class="section-title">Public</h2>
+      <div class="content-card">
+        <ul class="horizon-list">
+          <li>Ouvert aux <strong>curieux·ses, musicien·nes, développeur·ses, artistes numériques</strong></li>
+          <li><strong>Aucun niveau requis</strong> : débutant·es bienvenu·es</li>
+          <li>Accessible aussi bien aux personnes découvrant la pratique qu'à celles souhaitant un cadre régulier pour pratiquer</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" aria-labelledby="esprit-title">
+    <div class="container">
+      <h2 id="esprit-title" class="section-title">Esprit</h2>
+      <div class="content-card">
+        <div class="esprit-grid">
+          <div class="esprit-item">Horizontalité</div>
+          <div class="esprit-item">Expérimentation</div>
+          <div class="esprit-item">Bienveillance</div>
+          <div class="esprit-item">Curiosité technique et artistique</div>
+          <div class="esprit-item">Culture DIY / bidouille / open knowledge</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="cta-box">
+        <p class="lead">Intéressé·e par Horizon Live Coding ?</p>
+        <p>Rejoins le Discord pour être informé·e des prochaines sessions et <a href="/#impliquer" class="format-link">participer aux discussions</a>.</p>
+        <a href="#" class="btn btn-primary btn-large" id="discordBtn">Rejoindre le Discord</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" currentPage="horizon" />
+</Layout>

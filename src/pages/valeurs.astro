@@ -1,0 +1,148 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+  title="Manifeste & Valeurs - Le Looper"
+  description="Manifeste et valeurs du Looper - Inclusion, bienveillance, accessibilité, décloisonnement des styles musicaux."
+  currentPage="valeurs"
+  isHome={false}
+>
+  <Nav slot="nav" currentPage="valeurs" isHome={false} />
+
+  <section class="hero hero-small" aria-labelledby="manifeste-title">
+    <div class="hero-content">
+      <h1 id="manifeste-title" class="hero-title">Manifeste & Valeurs</h1>
+      <p class="hero-subtitle">Les principes qui guident le Looper</p>
+      <a href="#" class="btn btn-primary" id="discordBtn">Rejoindre le Discord</a>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="valeurs-title">
+    <div class="container">
+      <h2 id="valeurs-title" class="section-title">Nos valeurs</h2>
+      <div class="grid-2">
+        <div class="content-card">
+          <h3>Inclusion & Bienveillance</h3>
+          <p>Le Looper est un espace accueillant pour toutes et tous, sans discrimination. On cultive la bienveillance, l'écoute et le respect mutuel. Chacun·e est encouragé·e à <a href="/#impliquer" class="format-link">participer à son niveau</a>, sans jugement.</p>
+        </div>
+        <div class="content-card">
+          <h3>Anti-élite & Accessibilité</h3>
+          <p>Pas besoin d'être expert·e pour <a href="/#impliquer" class="format-link">rejoindre</a>. On valorise les débutant·es autant que les confirmé·es. L'apprentissage se fait ensemble, sans barrière d'expertise. Le DIY et l'expérimentation sont encouragés.</p>
+        </div>
+        <div class="content-card">
+          <h3>Décloisonnement</h3>
+          <p>Aucune frontière de style musical. Électronique, hip-hop, expérimental, ambient, techno, ambient, noise… Tous les univers se rencontrent et s'enrichissent. On refuse les étiquettes qui divisent.</p>
+        </div>
+        <div class="content-card">
+          <h3>Culture DIY & Transmission</h3>
+          <p>On privilégie l'autonomie, le partage de connaissances et l'entraide. La transmission est au cœur : partager ses techniques, ses découvertes, ses erreurs aussi. On apprend ensemble, on progresse ensemble.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" aria-labelledby="definition-title">
+    <div class="container">
+      <h2 id="definition-title" class="section-title">Ce que c'est / Ce que ce n'est pas</h2>
+      <div class="grid-2">
+        <div class="content-card card-positive">
+          <h3>✅ Ce que c'est</h3>
+          <ul>
+            <li>Un <strong>collectif</strong> ouvert à toutes et tous</li>
+            <li>Un <strong>espace de pratique</strong> et d'expérimentation</li>
+            <li>Un lieu de <strong>rencontres</strong> et d'échanges</li>
+            <li>Une <strong>communauté</strong> qui se construit ensemble</li>
+            <li>Un espace de <strong>transmission</strong> et d'entraide</li>
+            <li>Un projet <strong>inclusif</strong> et bienveillant</li>
+            <li>Un lieu où <strong>tous les styles</strong> sont les bienvenus</li>
+            <li>Un espace pour <strong>débutant·es</strong> comme confirmé·es</li>
+          </ul>
+        </div>
+        <div class="content-card card-negative">
+          <h3>❌ Ce que ce n'est pas</h3>
+          <ul>
+            <li>Une <strong>association</strong> formelle (pour l'instant)</li>
+            <li>Un <strong>club fermé</strong> ou exclusif</li>
+            <li>Un espace réservé aux <strong>expert·es</strong></li>
+            <li>Un projet centré sur un <strong>seul style</strong> musical</li>
+            <li>Un lieu de <strong>compétition</strong> ou de jugement</li>
+            <li>Un projet <strong>commercial</strong> ou lucratif</li>
+            <li>Un espace <strong>hiérarchique</strong> avec des rôles fixes</li>
+            <li>Un projet porté par <strong>une seule personne</strong></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="vision-title">
+    <div class="container">
+      <h2 id="vision-title" class="section-title">Notre vision</h2>
+      <div class="content-card">
+        <p class="lead">Le Looper naît d'une envie : créer à Toulouse une communauté autour de la création musicale numérique, inspirée par des projets similaires ailleurs.</p>
+
+        <div class="sequenceur-card">
+          <div class="sequenceur-card-header">
+            <h3>Inspiré par Le Séquenceur</h3>
+            <p class="sequenceur-location">📍 Lyon, France</p>
+          </div>
+          <div class="sequenceur-card-content">
+            <p>Le Looper s'inspire du projet <strong>"Le Séquenceur"</strong>, une association lyonnaise qui rassemble une communauté active autour de la création musicale numérique. Ce projet démontre qu'une approche inclusive, bienveillante et ouverte peut créer un véritable écosystème de pratique et de transmission.</p>
+            <p>En s'inspirant de cette expérience réussie, Le Looper souhaite créer à Toulouse un espace similaire, adapté au contexte local et construit collectivement.</p>
+          </div>
+          <div class="sequenceur-card-links">
+            <a href="https://www.instagram.com/lesequenceur/?hl=fr" target="_blank" rel="noopener noreferrer" class="sequenceur-link" aria-label="Instagram du Séquenceur">
+              <span aria-hidden="true">📷</span> Instagram
+            </a>
+            <a href="https://www.facebook.com/lesequenceur/?locale=fr_FR" target="_blank" rel="noopener noreferrer" class="sequenceur-link" aria-label="Facebook du Séquenceur">
+              <span aria-hidden="true">👥</span> Facebook
+            </a>
+            <a href="https://www.helloasso.com/associations/lesequenceur" target="_blank" rel="noopener noreferrer" class="sequenceur-link" aria-label="HelloAsso du Séquenceur">
+              <span aria-hidden="true">🤝</span> HelloAsso
+            </a>
+          </div>
+        </div>
+
+        <div class="marc-card">
+          <div class="marc-card-header">
+            <h3>L'impulsion</h3>
+          </div>
+          <div class="marc-card-content">
+            <p>Le Looper est propulsé par Marc Charton, qui a participé à la création du Séquenceur à Lyon en 2016 et a été membre actif pendant plusieurs années. Depuis 2023, il lance ce nouveau projet à Toulouse, du même ordre, pour créer une communauté autour de la création musicale numérique dans un nouveau contexte.</p>
+          </div>
+        </div>
+
+        <div class="grid-2 vision-grid">
+          <div class="vision-card">
+            <div class="vision-card-icon" aria-hidden="true">🚀</div>
+            <h3>Donner une impulsion</h3>
+            <p>L'objectif n'est pas de tout porter seul, mais de <strong>donner une impulsion</strong> et de construire ensemble. Chaque personne peut <a href="/#impliquer" class="format-link">contribuer à sa mesure</a>, avec ses compétences, son temps, ses idées.</p>
+          </div>
+          <div class="vision-card">
+            <div class="vision-card-icon" aria-hidden="true">🤝</div>
+            <h3>Apprendre ensemble</h3>
+            <p>On croit que la musique numérique gagne à être <strong>décloisonnée, accessible et collective</strong>. Que l'apprentissage se fait mieux ensemble. Que les rencontres créent des opportunités.</p>
+          </div>
+          <div class="vision-card">
+            <div class="vision-card-icon" aria-hidden="true">🎵</div>
+            <h3>Tous les chemins sont valides</h3>
+            <p>Le live coding est une porte parmi d'autres, pas l'unique sujet. MAO, machines, live sets, sound design, beatmaking, improvisation… <strong>Tous les chemins sont valides</strong>.</p>
+          </div>
+          <div class="vision-card vision-card-cta">
+            <div class="vision-card-icon" aria-hidden="true">🔄</div>
+            <h3>Rejoins la boucle</h3>
+            <p><strong>Rejoins la boucle</strong> et <a href="/#impliquer" class="format-link">contribue à faire grandir</a> cette communauté toulousaine.</p>
+          </div>
+        </div>
+      </div>
+      <div class="cta-box">
+        <a href="#" class="btn btn-primary btn-large" id="discordBtn2">Rejoindre le Discord</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" currentPage="valeurs" />
+</Layout>

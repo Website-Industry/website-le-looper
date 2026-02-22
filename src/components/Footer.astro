@@ -1,0 +1,67 @@
+---
+const { currentPage = '' } = Astro.props;
+---
+
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Le Looper</h3>
+        <p>Création musicale numérique à Toulouse</p>
+        <p>Ponts entre musicien·nes, sans frontières de style</p>
+      </div>
+      <div class="footer-section">
+        <h3>Rejoins-nous</h3>
+        <div class="footer-links">
+          <a href="#" class="footer-link" id="discordBtnFooter" aria-label="Rejoindre le Discord">
+            <span aria-hidden="true">💬</span> Discord
+          </a>
+          <a href="#" class="footer-link" id="instagramBtn" aria-label="Suivre sur Instagram">
+            <span aria-hidden="true">📷</span> Instagram
+          </a>
+          <a href="#" class="footer-link" id="facebookBtn" aria-label="Suivre la page Facebook">
+            <span aria-hidden="true">👥</span> Facebook
+          </a>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h3>En savoir plus</h3>
+        <ul class="footer-links-list">
+          <li>
+            <a href="valeurs.html" class="footer-link">Manifeste & valeurs</a>
+          </li>
+          <li>
+            <a href={currentPage === 'home' ? '#projet' : 'index.html#projet'} class="footer-link">Le projet</a>
+          </li>
+          <li>
+            <a href={currentPage === 'home' ? '#impliquer' : 'index.html#impliquer'} class="footer-link"
+              >S'impliquer</a
+            >
+          </li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Ressources</h3>
+        <ul class="footer-links-list">
+          <li>
+            <a
+              href="ressources.html"
+              class={`footer-link${currentPage === 'ressources' ? ' nav-link-active' : ''}`}
+              >Page Ressources</a
+            >
+          </li>
+          <li>
+            <a href="strudel-recap.html" class="footer-link">Fiche récap Strudel</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Toulouse, France</p>
+      <p>
+        &copy; <span id="currentYear"></span> Le Looper. Tous droits réservés.
+      </p>
+    </div>
+  </div>
+</footer>
+

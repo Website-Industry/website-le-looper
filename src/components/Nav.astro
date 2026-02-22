@@ -1,0 +1,80 @@
+---
+const { currentPage = '', isHome = false } = Astro.props;
+
+const homeHref = isHome ? '#accueil' : 'index.html';
+const projetHref = isHome ? '#projet' : 'index.html#projet';
+const formatsHref = isHome ? '#formats' : 'index.html#formats';
+const impliquerHref = isHome ? '#impliquer' : 'index.html#impliquer';
+const agendaHref = isHome ? '#agenda' : 'index.html#agenda';
+const contactHref = isHome ? '#contact' : 'index.html#contact';
+---
+
+<nav class="navbar" role="navigation" aria-label="Navigation principale">
+  <div class="nav-container">
+    <a href={homeHref} class="logo" aria-label="Le Looper - Retour à l'accueil">
+      <img src="/img/logo.svg" alt="" class="logo-icon" aria-hidden="true" />
+      Le Looper
+    </a>
+    <button class="menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false" id="menuToggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <ul class="nav-menu" id="navMenu">
+      <li class="nav-item-dropdown">
+        <a href={projetHref} class="nav-link">
+          Projet <span aria-hidden="true">▼</span>
+        </a>
+        <ul class="dropdown-menu">
+          <li>
+            <a href={projetHref} class="dropdown-link">C'est quoi ?</a>
+          </li>
+          <li>
+            <a href={isHome ? '#partenaires' : 'index.html#partenaires'} class="dropdown-link">Partenaires</a>
+          </li>
+          <li>
+            <a
+              href="valeurs.html"
+              class={`dropdown-link${currentPage === 'valeurs' ? ' nav-link-active' : ''}`}
+              >Valeurs</a
+            >
+          </li>
+        </ul>
+      </li>
+      <li class="nav-item-dropdown">
+        <a href={formatsHref} class="nav-link">
+          Formats <span aria-hidden="true">▼</span>
+        </a>
+        <ul class="dropdown-menu">
+          <li>
+            <a href={formatsHref} class="dropdown-link">Tous les formats</a>
+          </li>
+          <li>
+            <a
+              href="horizon-live-coding.html"
+              class={`dropdown-link${currentPage === 'horizon' ? ' nav-link-active' : ''}`}
+              >Horizon Live Coding</a
+            >
+          </li>
+          <li>
+            <a
+              href="workflow.html"
+              class={`dropdown-link${currentPage === 'workflow' ? ' nav-link-active' : ''}`}
+              >Workflow</a
+            >
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href={impliquerHref} class="nav-link">S'impliquer</a>
+      </li>
+      <li>
+        <a href={agendaHref} class="nav-link">Agenda</a>
+      </li>
+      <li>
+        <a href={contactHref} class="nav-link">Nous trouver</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+

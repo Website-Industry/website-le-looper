@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "Site web du collectif Le Looper - communauté de création musicale numérique à Toulouse",
   "scripts": {
-    "dev": "serve -l 3000"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "dev:static": "serve -l 3000"
   },
   "keywords": [
     "musique",
@@ -14,6 +17,7 @@
   "author": "marc-charton",
   "license": "UNLICENSED",
   "devDependencies": {
+    "astro": "^5.17.3",
     "serve": "^14.2.1"
   },
   "dependencies": {
