@@ -4,7 +4,8 @@
 const CONFIG = {
     DISCORD_INVITE_URL: "https://discord.gg/aWUtah3rvF",
     INSTAGRAM_URL: "https://www.instagram.com/lelooper_toulouse/",
-    FACEBOOK_URL: "https://www.facebook.com/groups/711269780777603"
+    FACEBOOK_PAGE_URL: "https://www.facebook.com/profile.php?id=61588624646590",
+    FACEBOOK_GROUP_URL: "https://www.facebook.com/groups/711269780777603"
 };
 
 // ============================================
@@ -124,13 +125,12 @@ function initInstagramLinks() {
 }
 
 // ============================================
-// Liens Facebook
+// Liens Facebook (page = lien principal, ex. footer)
 // ============================================
 function initFacebookLinks() {
     const facebookButtons = document.querySelectorAll('[id^="facebookBtn"]');
-    
     facebookButtons.forEach(button => {
-        button.href = CONFIG.FACEBOOK_URL;
+        button.href = CONFIG.FACEBOOK_PAGE_URL;
         button.target = '_blank';
         button.rel = 'noopener noreferrer';
     });
@@ -161,10 +161,18 @@ function initPlatformCards() {
         instagramPlatformBtn.rel = 'noopener noreferrer';
     }
     
-    // Facebook
+    // Facebook (page)
+    const facebookPagePlatformBtn = document.getElementById('facebookPagePlatformBtn');
+    if (facebookPagePlatformBtn) {
+        facebookPagePlatformBtn.href = CONFIG.FACEBOOK_PAGE_URL;
+        facebookPagePlatformBtn.target = '_blank';
+        facebookPagePlatformBtn.rel = 'noopener noreferrer';
+    }
+
+    // Facebook (groupe — à terme secondaire)
     const facebookPlatformBtn = document.getElementById('facebookPlatformBtn');
     if (facebookPlatformBtn) {
-        facebookPlatformBtn.href = CONFIG.FACEBOOK_URL;
+        facebookPlatformBtn.href = CONFIG.FACEBOOK_GROUP_URL;
         facebookPlatformBtn.target = '_blank';
         facebookPlatformBtn.rel = 'noopener noreferrer';
     }
