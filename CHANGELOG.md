@@ -11,6 +11,7 @@ Tous les changements notables du projet sont documentés dans ce fichier.
 
 ### Corrigé
 - Agenda figé à la date du dernier build : la répartition « à venir » / « archives » et le tag « aujourd'hui » sont désormais recalculés dans le navigateur à chaque visite.
+- Archives : jours des ateliers Horizon Live Coding corrigés (dimanches 8 mars et 19 avril 2026) et année de l'atelier #1 (18 janvier 2026).
 
 ---
 
