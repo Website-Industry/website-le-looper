@@ -4,6 +4,16 @@ Tous les changements notables du projet sont documentés dans ce fichier.
 
 ---
 
+## [2026-11-25]
+
+### Ajouté
+- Agenda : initiation live coding Strudel aux **Loop Sessions Worldwide** (samedi 28 novembre 2026, 10h-12h, Bibliothèque d'Étude et du Patrimoine).
+
+### Corrigé
+- Agenda figé à la date du dernier build : la répartition « à venir » / « archives » et le tag « aujourd'hui » sont désormais recalculés dans le navigateur à chaque visite.
+
+---
+
 ## [2026-02-22]
 
 ### Ajouté

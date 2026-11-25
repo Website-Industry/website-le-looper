@@ -8,6 +8,7 @@ const allAgendaEvents = [
   { date: '2026-02-22', dateLabel: 'Dimanche 22 février 2026', title: 'Atelier "Horizon Live Coding #2"', time: '14h - 16h', desc: 'Découverte de Strudel.cc', location: '📍 <a href="https://eurekafe.fr/" target="_blank" rel="noopener noreferrer" class="event-location-link">Eurêkafé</a>, 5 Impasse Colombette, Toulouse', links: [{ href: '/horizon-live-coding.html', text: 'Découvrir le format →', secondary: true }, { href: 'https://luma.com/b3xenym8', text: 'Plus d\'info →' }] },
   { date: '2026-03-08', dateLabel: 'Samedi 8 mars 2026', title: 'Atelier "Horizon Live Coding #3"', time: '14h - 16h', desc: 'Session de pratique collective de live coding', location: '📍 <a href="https://eurekafe.fr/" target="_blank" rel="noopener noreferrer" class="event-location-link">Eurêkafé</a>, 5 Impasse Colombette, Toulouse', links: [{ href: '/horizon-live-coding.html', text: 'Découvrir le format →', secondary: true }, { href: 'https://luma.com/0m6imtz6', text: 'Plus d\'info →' }] },
   { date: '2026-04-19', dateLabel: 'Samedi 19 avril 2026', title: 'Atelier "Horizon Live Coding #4"', time: '14h - 16h', desc: 'Session de pratique collective de live coding', location: '📍 <a href="https://eurekafe.fr/" target="_blank" rel="noopener noreferrer" class="event-location-link">Eurêkafé</a>, 5 Impasse Colombette, Toulouse', links: [{ href: '/horizon-live-coding.html', text: 'Découvrir le format →', secondary: true }, { href: 'https://luma.com/73hllnf6', text: 'Plus d\'info →' }] },
+  { date: '2026-11-28', dateLabel: 'Samedi 28 novembre 2026', title: 'Initiation live coding Strudel aux Loop Sessions Worldwide', time: '10h - 12h', desc: 'Le Looper aux Loop Sessions Worldwide, « l\'événement du beatmaking » : faire groover des samples avec quelques lignes de code, et mettre les mains dedans. Gratuit, entrée libre à tout moment.', location: '📍 Bibliothèque d\'Étude et du Patrimoine, 1 rue de Périgord, Toulouse', links: [{ href: 'https://live-coding-strudel.vercel.app', text: 'Découvrir l\'atelier →' }] },
   { date: null, dateLabel: 'En discussion', title: 'Écoute collective d\'albums', desc: 'Session d\'écoute collective pour découvrir et partager des albums. Format et date à définir.', links: [{ href: '#impliquer', text: 'Ça m\'intéresse ! →' }] },
   { date: null, dateLabel: 'En discussion', title: 'Workflow #2', paragraphs: ['Deuxième session de la série Workflow. Thème et date à venir.', 'Vous souhaitez proposer un contenu ? Partagez votre process musical, vos compos, votre univers… Contactez-nous via Discord pour proposer votre intervention !'], links: [{ href: '/workflow.html', text: 'Découvrir le format →', secondary: true }, { href: '#impliquer', text: 'Ça m\'intéresse ! →' }] },
   { date: '2025-01-18', dateLabel: 'Dimanche 18 janvier 2025', title: 'Atelier "Horizon Live Coding #1"', time: '13h - 15h', desc: 'Découverte de Strudel.cc', location: '📍 <a href="https://eurekafe.fr/" target="_blank" rel="noopener noreferrer" class="event-location-link">Eurêkafé</a>, 5 Impasse Colombette, Toulouse', links: [{ href: '/horizon-live-coding.html', text: 'Découvrir le format →', secondary: true }, { href: 'https://tour-de-controle.notion.site/D-couverte-de-struddel-cc-2102974a82658071a542d2c0dbd6d6f6', text: 'En savoir plus →' }] },
@@ -18,12 +19,16 @@ const allAgendaEvents = [
 const today = new Date();
 today.setHours(0, 0, 0, 0);
 
-const upcomingEvents = allAgendaEvents
-  .filter((e) => e.date === null || new Date(e.date) >= today)
+// Les deux listes contiennent tous les événements datés : un script côté navigateur
+// masque ceux qui ne sont pas à leur place selon la date du jour (le site est statique,
+// sans lui l'agenda resterait figé à la date du dernier build).
+const isPast = (e: { date: string | null }) => e.date !== null && new Date(e.date) < today;
+
+const upcomingEvents = [...allAgendaEvents]
   .sort((a, b) => (a.date == null ? 1 : b.date == null ? -1 : (a.date as string).localeCompare(b.date as string)));
 
 const archivedEvents = allAgendaEvents
-  .filter((e) => e.date !== null && new Date(e.date) < today)
+  .filter((e) => e.date !== null)
   .sort((a, b) => (b.date as string).localeCompare(a.date as string));
 
 const todayStr = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
@@ -186,8 +191,8 @@ const todayStr = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart
       <div class="content-card">
         <div class="events-list">
           {upcomingEvents.map((event) => (
-            <div class:list={['event-card', event.date === todayStr && 'event-card--today']}>
-              <div class="event-date">{event.dateLabel}{event.date === todayStr && <span class="event-tag">aujourd'hui</span>}</div>
+            <div class:list={['event-card', event.date === todayStr && 'event-card--today']} data-date={event.date ?? undefined} hidden={isPast(event)}>
+              <div class="event-date">{event.dateLabel}{event.date && <span class="event-tag" hidden={event.date !== todayStr}>aujourd'hui</span>}</div>
               <h3>{event.title}</h3>
               {'paragraphs' in event ? (
                 event.paragraphs!.map((p) => <p>{p}</p>)
@@ -218,7 +223,7 @@ const todayStr = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart
           <h3 class="archive-section-title">Archives</h3>
           <div class="archive-list">
             {archivedEvents.map((event) => (
-              <div class="archive-item">
+              <div class="archive-item" data-date={event.date} hidden={!isPast(event)}>
                 <div class="archive-date">{event.dateLabel}</div>
                 <h4>{event.title}</h4>
                 {'paragraphs' in event ? (
@@ -246,6 +251,23 @@ const todayStr = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart
             ))}
           </div>
         </div>
+
+        <script is:inline>
+          (function () {
+            var d = new Date();
+            var today = d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+            document.querySelectorAll('#agenda .event-card[data-date]').forEach(function (el) {
+              var date = el.dataset.date;
+              el.hidden = date < today;
+              el.classList.toggle('event-card--today', date === today);
+              var tag = el.querySelector('.event-tag');
+              if (tag) tag.hidden = date !== today;
+            });
+            document.querySelectorAll('#agenda .archive-item[data-date]').forEach(function (el) {
+              el.hidden = el.dataset.date >= today;
+            });
+          })();
+        </script>
 
         <div class="cta-box">
           <p class="quote">Pour proposer ou voter pour un événement, rejoins le Discord.</p>

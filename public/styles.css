@@ -2058,3 +2058,8 @@ a:focus-visible {
     outline-offset: 2px;
 }
 
+
+/* Agenda : éléments masqués selon la date du jour (script inline de index.astro) */
+#agenda [hidden] {
+    display: none !important;
+}
